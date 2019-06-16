@@ -1,0 +1,15 @@
+{
+  "name": "comingsoon",
+  "version": "1.0.0",
+  "description": "coming soon homepage",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "coming",
+    "soon"
+  ],
+  "author": "Achim Ismaili",
+  "license": "ISC"
+}
