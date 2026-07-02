@@ -1,5 +1,5 @@
 export const siteConfig = {
-  siteName: 'dev.ismaili.de',
+  siteName: 'achim.ismaili.de',
   homeVariant: 'minimal' as 'minimal' | 'cards' | 'hero',
   noIndex: false,
 } as const;

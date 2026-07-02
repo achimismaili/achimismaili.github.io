@@ -12,8 +12,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))
       '@achimismaili/easy-web-content-blocks':
-        specifier: ^0.6.0
-        version: 0.6.0(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))(zod@4.4.3)
+        specifier: ^0.6.1
+        version: 0.6.1(@achimismaili/easy-web-theme-core@0.5.0)(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))(zod@4.4.3)
       '@achimismaili/easy-web-i18n':
         specifier: ^0.3.1
         version: 0.3.1(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))
@@ -68,9 +68,10 @@ packages:
     peerDependencies:
       astro: '>=6.0.0'
 
-  '@achimismaili/easy-web-content-blocks@0.6.0':
-    resolution: {integrity: sha512-fBgHzSoc0XxByBEswZI6RZWpA861KFDUxJ/Rqvy956oE7UablCGIiw+i9dc3Ics4562oh4UChLU6MSGcYdF7Gg==}
+  '@achimismaili/easy-web-content-blocks@0.6.1':
+    resolution: {integrity: sha512-aaK3iGI7jpgZHB0TSIRn3vc/fiPBboVhHMZs+x9dBZ75Nvc6vfX0zGLg5SX8wa426ck6Gm9dafne4uSxkJhrjQ==}
     peerDependencies:
+      '@achimismaili/easy-web-theme-core': 0.5.0
       astro: '>=6.0.0'
       zod: '>=4.0.0'
 
@@ -2278,8 +2279,9 @@ snapshots:
     dependencies:
       astro: 6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
 
-  '@achimismaili/easy-web-content-blocks@0.6.0(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))(zod@4.4.3)':
+  '@achimismaili/easy-web-content-blocks@0.6.1(@achimismaili/easy-web-theme-core@0.5.0)(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))(zod@4.4.3)':
     dependencies:
+      '@achimismaili/easy-web-theme-core': 0.5.0
       astro: 6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
       zod: 4.4.3
 

@@ -1,5 +1,5 @@
 {
-  "name": "dev-ismaili-de",
+  "name": "achim-ismaili-de",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
-    "@achimismaili/easy-web-content-blocks": "^0.6.0",
+    "@achimismaili/easy-web-content-blocks": "^0.6.1",
     "@achimismaili/easy-web-cms-adapters": "^0.2.0",
     "@achimismaili/easy-web-i18n": "^0.3.1",
     "@achimismaili/easy-web-theme-core": "^0.5.0",

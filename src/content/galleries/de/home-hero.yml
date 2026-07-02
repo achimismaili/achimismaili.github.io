@@ -7,7 +7,7 @@ height: lg
 slides:
   - src: /images/gallery/hero-demo.svg
     alt: Beispielbild eines Hero-Banners
-    title: Willkommen bei dev.ismaili.de
+    title: Willkommen bei achim.ismaili.de
     subtitle: Die Pilot-Instanz des easy-web-Ökosystems
     href: /about/
     cta: Mehr erfahren

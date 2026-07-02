@@ -110,11 +110,11 @@ const alternateLinks = i18n.getAlternateLinks(pathname);
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
-    <meta property="og:url" content={`https://dev.ismaili.de${pathname}`} />
+    <meta property="og:url" content={`https://achim.ismaili.de${pathname}`} />
     <meta property="og:type" content={ogType} />
     <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'de_DE'} />
     <meta property="og:locale:alternate" content={lang === 'en' ? 'de_DE' : 'en_US'} />
-    <meta property="og:site_name" content="dev.ismaili.de" />
+    <meta property="og:site_name" content="achim.ismaili.de" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
@@ -122,10 +122,6 @@ const alternateLinks = i18n.getAlternateLinks(pathname);
     {alternateLinks.map((link) => <link rel="alternate" hreflang={link.hreflang} href={link.href} />)}
   </head>
   <body>
-    <!-- Development Environment Notice -->
-    <div style="background: #d97706; color: white; text-align: center; padding: 8px 16px; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; position: sticky; top: 0; z-index: 9999;">
-      ⚠️ Development Environment — Not for public use. Content may be incomplete or inaccurate.
-    </div>
     <ActiveHeader siteName={siteConfig.siteName} navItems={navItems} currentLang={locale} pathname={pathname} alternateHref={alternateHref} logo="/logo.svg" />
     <slot />
     <Footer siteName={siteConfig.siteName} legalLinks={legalLinks} />

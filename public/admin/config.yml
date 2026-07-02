@@ -571,9 +571,9 @@ collections:
         name: "theme"
         file: "src/content/data/theme.json"
         fields:
-          - { name: companyName, widget: hidden, default: "dev.ismaili.de" }
-          - { name: defaultTitle, widget: hidden, default: "dev.ismaili.de" }
-          - { name: url, widget: hidden, default: "https://dev.ismaili.de" }
+          - { name: companyName, widget: hidden, default: "achim.ismaili.de" }
+          - { name: defaultTitle, widget: hidden, default: "achim.ismaili.de" }
+          - { name: url, widget: hidden, default: "https://achim.ismaili.de" }
           - name: primary
             label: "Primary Brand Color"
             widget: color
