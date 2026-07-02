@@ -1,0 +1,10 @@
+{
+  "companyName": "ITCI",
+  "defaultTitle": "Development ismaili.de",
+  "url": "https://dev.ismaili.de",
+  "titleTemplate": "%s | dev.ismaili.de",
+  "defaultDescription": "Das Pilot-Portal für die ismaili.de Web-Ökosystem-Plattform — demonstriert die easy-web Komponentenbibliothek.",
+  "ogImage": "/images/og-default.jpg",
+  "twitterCard": "summary_large_image",
+  "noIndex": true
+}

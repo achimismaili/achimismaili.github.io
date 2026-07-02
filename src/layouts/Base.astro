@@ -1,0 +1,146 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in global stylesheet side effects.
+import { noFlashScript } from '@achimismaili/easy-web-theme-core';
+import '@achimismaili/easy-web-theme-core/tokens.css';
+import '@achimismaili/easy-web-theme-core/fonts.css';
+import '../styles/themes.css';
+import Header from '@achimismaili/easy-web-content-blocks/components/Header';
+import HeaderCentered from '@achimismaili/easy-web-content-blocks/components/HeaderCentered';
+import HeaderHideOnScroll from '@achimismaili/easy-web-content-blocks/components/HeaderHideOnScroll';
+import HeaderFlyout from '@achimismaili/easy-web-content-blocks/components/HeaderFlyout';
+import Footer from '@achimismaili/easy-web-content-blocks/components/Footer';
+import { i18n } from '../lib/i18n';
+import type { Locale } from '../lib/i18n';
+import { siteConfig } from '../config';
+import { getEntry } from 'astro:content';
+
+interface Props {
+  lang: string;
+  title: string;
+  pathname?: string;
+  description?: string;
+  alternateHref?: string;
+  ogType?: 'website' | 'article';
+  headerVariant?: 'classic' | 'centered' | 'hide-on-scroll' | 'flyout';
+}
+
+// biome-ignore lint/correctness/noUnusedVariables: lang and title are used in the Astro template below.
+const { lang, title, pathname = '/', description, alternateHref, ogType = 'website', headerVariant = 'classic' } = Astro.props;
+const locale = (lang === 'en' ? 'en' : 'de') as Locale;
+
+// Header variant dispatcher
+const headerVariantMap = {
+  classic: Header,
+  centered: HeaderCentered,
+  'hide-on-scroll': HeaderHideOnScroll,
+  flyout: HeaderFlyout,
+} as const;
+const ActiveHeader = headerVariantMap[headerVariant];
+
+// Load navigation from collection
+const navData = await getEntry('siteConfig', 'navigation');
+const navJson = navData!.data as any;
+const navItems = navJson.main?.[locale] ?? [];
+const legalLinks = navJson.legal?.[locale] ?? [];
+
+// Load SEO defaults from collection
+const seoData = await getEntry('siteConfig', 'seo');
+const seoJson = seoData!.data as any;
+const noIndex = seoJson.noIndex ?? false;
+
+// Load theme color overrides from collection
+const themeData = await getEntry('siteConfig', 'theme');
+const themeColors = themeData?.data as { primary?: string; accent?: string } | undefined;
+
+// biome-ignore lint/correctness/noUnusedVariables: used in the Astro template below.
+const alternateLinks = i18n.getAlternateLinks(pathname);
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <script is:inline set:html={noFlashScript}></script>
+    <script is:inline>
+      (function() {
+        var STORAGE_KEY = 'easy-web-demo-theme';
+        var VALID_THEMES = ['business', 'creative'];
+
+        function applyTheme(theme) {
+          if (theme && VALID_THEMES.indexOf(theme) !== -1) {
+            document.documentElement.setAttribute('data-theme', theme);
+            sessionStorage.setItem(STORAGE_KEY, theme);
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+            sessionStorage.removeItem(STORAGE_KEY);
+          }
+        }
+
+        var params = new URLSearchParams(window.location.search);
+        var queryTheme = params.get('theme');
+        if (queryTheme) {
+          applyTheme(queryTheme);
+        } else {
+          var stored = sessionStorage.getItem(STORAGE_KEY);
+          if (stored) applyTheme(stored);
+        }
+
+        var activeTheme = document.documentElement.getAttribute('data-theme');
+        if (activeTheme && VALID_THEMES.indexOf(activeTheme) !== -1) {
+          var badge = document.createElement('div');
+          badge.id = 'ew-theme-badge';
+          badge.textContent = 'Theme: ' + activeTheme;
+          badge.style.cssText = 'position:fixed;bottom:16px;right:16px;background:rgba(0,0,0,0.7);color:white;padding:6px 12px;border-radius:9999px;font-size:12px;z-index:9999;pointer-events:none;';
+          document.addEventListener('DOMContentLoaded', function() { document.body.appendChild(badge); });
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" as="font" href="/fonts/Inter-Variable.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="/fonts/JetBrainsMono-Variable.woff2" type="font/woff2" crossorigin />
+    {themeColors?.primary && (
+      <style set:html={`:root { --ew-primary: ${themeColors.primary}; --ew-accent: ${themeColors.accent ?? '#f59e0b'}; }`} />
+    )}
+    <link rel="manifest" href="/manifest.json" />
+    <!-- theme-color must be a static value; #6366f1 mirrors --ew-primary from tokens.css -->
+    <meta name="theme-color" content="#6366f1" />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={`https://dev.ismaili.de${pathname}`} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'de_DE'} />
+    <meta property="og:locale:alternate" content={lang === 'en' ? 'de_DE' : 'en_US'} />
+    <meta property="og:site_name" content="dev.ismaili.de" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    {alternateLinks.map((link) => <link rel="alternate" hreflang={link.hreflang} href={link.href} />)}
+  </head>
+  <body>
+    <!-- Development Environment Notice -->
+    <div style="background: #d97706; color: white; text-align: center; padding: 8px 16px; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; position: sticky; top: 0; z-index: 9999;">
+      ⚠️ Development Environment — Not for public use. Content may be incomplete or inaccurate.
+    </div>
+    <ActiveHeader siteName={siteConfig.siteName} navItems={navItems} currentLang={locale} pathname={pathname} alternateHref={alternateHref} logo="/logo.svg" />
+    <slot />
+    <Footer siteName={siteConfig.siteName} legalLinks={legalLinks} />
+  </body>
+</html>
+
+<style is:global>
+  body {
+    background: var(--ew-surface);
+    color: var(--ew-on-surface);
+    font-family: var(--ew-font-sans);
+    margin: 0;
+    padding: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ew-font-sans);
+  }
+</style>

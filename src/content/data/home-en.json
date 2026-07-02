@@ -1,0 +1,36 @@
+{
+  "page": {
+    "title": "Achim Ismaili — Web Engineering, Software Architecture & Open Source",
+    "description": "Personal website of Achim Ismaili. Web engineering, software architecture and open source from Simmern."
+  },
+  "hero": {
+    "title": "Web Engineering, Software Architecture & Open Source",
+    "subtitle": "Achim Ismaili — developer, architect and open source enthusiast from Simmern.",
+    "ctaLabel": "Learn More",
+    "ctaHref": "/en/about/"
+  },
+  "featuresSection": {
+    "title": "What I Do"
+  },
+  "features": [
+    {
+      "title": "Open Source",
+      "description": "Developer and maintainer of easy-web (Astro component library) and FeatureAdmin (SharePoint tool). Contributing to open source projects on GitHub."
+    },
+    {
+      "title": "Community & Engagement",
+      "description": "Volunteer support for sports clubs and non-profit organizations. Website maintenance and Microsoft 365 administration."
+    },
+    {
+      "title": "Web Engineering",
+      "description": "Modern web stacks with Astro, TypeScript and Azure. CI/CD pipelines, Static Web Apps and software architecture for scalable web ecosystems."
+    }
+  ],
+  "ctaSection": {
+    "heading": "Discover Open Source",
+    "body": "Learn more about easy-web, FeatureAdmin and other open source projects.",
+    "buttonLabel": "View Projects",
+    "buttonHref": "/en/open-source/",
+    "variant": "muted"
+  }
+}

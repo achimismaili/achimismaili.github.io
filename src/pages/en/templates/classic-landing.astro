@@ -1,0 +1,69 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../../layouts/Base.astro';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Hero from '@achimismaili/easy-web-content-blocks/components/Hero';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Section from '@achimismaili/easy-web-content-blocks/components/Section';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import CardGrid from '@achimismaili/easy-web-content-blocks/components/CardGrid';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Card from '@achimismaili/easy-web-content-blocks/components/Card';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import CtaSection from '@achimismaili/easy-web-content-blocks/components/CtaSection';
+
+const features = [
+  { title: 'Fast delivery', description: 'Statically generated, optimized for Azure Static Web Apps. First content is visible in under a second.' },
+  { title: 'Multilingual', description: 'German and English wired up out of the box. Add more languages as needed.' },
+  { title: 'Light and dark', description: 'Theme toggle included. Customizable via CSS custom properties.' },
+  { title: 'CMS-driven content', description: 'Edit text, images, and galleries directly in the browser — no code changes required.' },
+  { title: 'Components', description: 'Hero, cards, galleries, sliders, and more — reusable across all instances.' },
+  { title: 'Pilot-first', description: 'Every change is validated here on the pilot instance before it reaches customer sites.' },
+];
+---
+
+<Base
+  lang="en"
+  title="Template — Classic Landing"
+  pathname="/en/templates/classic-landing/"
+  alternateHref="/templates/classic-landing/"
+  description="Preview of the classic landing page template."
+>
+  <p class="ew-tpl-eyebrow">Template: classic-landing</p>
+
+  <Hero
+    title="Welcome to Sample Studio"
+    subtitle="A modern landing page template with hero, features, and call-to-action — ready for your brand."
+    ctaLabel="Learn more"
+    ctaHref="#features"
+    variant="centered"
+  />
+
+  <Section title="Features" id="features">
+    <CardGrid>
+      {features.map((f) => (
+        <Card title={f.title} description={f.description} />
+      ))}
+    </CardGrid>
+  </Section>
+
+  <CtaSection
+    heading="Ready to get started?"
+    body="Swap the content and you have your own landing page in minutes."
+    buttonLabel="Get started"
+    buttonHref="mailto:hello@example.com"
+    variant="primary"
+  />
+</Base>
+
+<style>
+  .ew-tpl-eyebrow {
+    font-family: var(--ew-font-mono);
+    font-size: var(--ew-text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ew-muted);
+    text-align: center;
+    margin: var(--ew-space-5) 0 0;
+  }
+</style>

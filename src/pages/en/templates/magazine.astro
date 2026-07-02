@@ -1,0 +1,193 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../../layouts/Base.astro';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import BlogPostCard from '@achimismaili/easy-web-content-blocks/components/BlogPostCard';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import CtaSection from '@achimismaili/easy-web-content-blocks/components/CtaSection';
+
+const featured = {
+  id: 'magazine-featured',
+  data: {
+    title: 'Magazine article example',
+    description: 'A preview of editorial content appears here.',
+    pubDate: new Date('2025-01-15'),
+    heroImage: '/images/placeholders/magazine-featured.jpg',
+  },
+};
+const recent = [
+  {
+    id: 'magazine-recent-1',
+    data: {
+      title: 'More articles',
+      description: 'Another sample post for the layout.',
+      pubDate: new Date('2025-01-10'),
+      heroImage: '/images/placeholders/magazine-recent.jpg',
+    },
+  },
+];
+const formattedFeaturedDate = new Intl.DateTimeFormat('en', { dateStyle: 'long' }).format(
+  featured.data.pubDate,
+);
+---
+
+<Base
+  lang="en"
+  title="Template — Magazine"
+  pathname="/en/templates/magazine/"
+  alternateHref="/templates/magazine/"
+  description="Preview of the magazine homepage template."
+>
+  <p class="ew-tpl-eyebrow">Template: magazine</p>
+
+  {featured && (
+    <article class="ew-tpl-mag-featured">
+      <div class="ew-tpl-mag-featured__inner">
+        <p class="ew-tpl-mag-featured__kicker">Latest article</p>
+        <h1 class="ew-tpl-mag-featured__title">
+          <a href="#">
+            {featured.data.title}
+          </a>
+        </h1>
+        <p class="ew-tpl-mag-featured__date">{formattedFeaturedDate}</p>
+        <p class="ew-tpl-mag-featured__description">{featured.data.description}</p>
+        <a class="ew-tpl-mag-featured__cta" href="#">
+          Read article →
+        </a>
+      </div>
+    </article>
+  )}
+
+  <section class="ew-tpl-mag-recent">
+    <div class="ew-tpl-mag-recent__inner">
+      <h2 class="ew-tpl-mag-recent__heading">Recent posts</h2>
+      {recent.length > 0 ? (
+        <div class="ew-tpl-mag-grid">
+          {recent.map((post) => (
+            <BlogPostCard
+              title={post.data.title}
+              description={post.data.description}
+              href="#"
+              pubDate={post.data.pubDate}
+              heroImage={post.data.heroImage}
+              locale="en"
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="ew-tpl-mag-empty">More posts coming soon.</p>
+      )}
+    </div>
+  </section>
+
+  <CtaSection
+    heading="Stay in the loop"
+    body="Subscribe to our newsletter so you never miss a post."
+    buttonLabel="Subscribe"
+    buttonHref="mailto:hello@example.com"
+    variant="muted"
+  />
+</Base>
+
+<style>
+  .ew-tpl-eyebrow {
+    font-family: var(--ew-font-mono);
+    font-size: var(--ew-text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ew-muted);
+    text-align: center;
+    margin: var(--ew-space-5) 0 0;
+  }
+
+  .ew-tpl-mag-featured {
+    padding: var(--ew-space-8) var(--ew-space-5);
+    background: var(--ew-surface-muted);
+    border-bottom: 1px solid var(--ew-border);
+  }
+  .ew-tpl-mag-featured__inner {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+  .ew-tpl-mag-featured__kicker {
+    font-family: var(--ew-font-mono);
+    font-size: var(--ew-text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ew-primary);
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-tpl-mag-featured__title {
+    font-family: var(--ew-font-sans);
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-tpl-mag-featured__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .ew-tpl-mag-featured__title a:hover {
+    color: var(--ew-primary);
+  }
+  .ew-tpl-mag-featured__date {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-sm);
+    color: var(--ew-muted);
+    margin: 0 0 var(--ew-space-4);
+  }
+  .ew-tpl-mag-featured__description {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-lg);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    margin: 0 0 var(--ew-space-5);
+  }
+  .ew-tpl-mag-featured__cta {
+    display: inline-block;
+    color: var(--ew-primary);
+    text-decoration: none;
+    font-family: var(--ew-font-sans);
+    font-weight: 600;
+    font-size: var(--ew-text-base);
+  }
+  .ew-tpl-mag-featured__cta:hover {
+    text-decoration: underline;
+  }
+
+  .ew-tpl-mag-recent {
+    padding: var(--ew-space-8) var(--ew-space-5);
+  }
+  .ew-tpl-mag-recent__inner {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+  .ew-tpl-mag-recent__heading {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-5);
+    line-height: var(--ew-leading-tight);
+  }
+
+  .ew-tpl-mag-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--ew-space-5);
+  }
+  @media (min-width: 640px) {
+    .ew-tpl-mag-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .ew-tpl-mag-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .ew-tpl-mag-empty {
+    font-family: var(--ew-font-sans);
+    color: var(--ew-muted);
+    margin: 0;
+  }
+</style>

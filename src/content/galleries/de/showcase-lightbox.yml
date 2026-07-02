@@ -1,0 +1,29 @@
+kind: lightbox-grid
+locale: de
+translationKey: showcase-lightbox
+title: Lightbox-Raster-Beispiel
+columns: 3
+gap: md
+aspectRatio: square
+items:
+  - src: /images/gallery/hero-demo.svg
+    alt: Hero Komponente
+    title: Hero
+    description: Großformatige Einleitungs-Komponente. Klick öffnet die volle Ansicht.
+  - src: /images/gallery/cards-demo.svg
+    alt: Card Grid
+    title: Card Grid
+    description: Responsive Karten-Raster. Klick öffnet die volle Ansicht.
+  - src: /images/gallery/theme-demo.svg
+    alt: Theme Toggle
+    title: Theme Toggle
+    description: Hell/Dunkel-Umschalter. Klick öffnet die volle Ansicht.
+  - src: /images/gallery/cards-demo.svg
+    alt: Cards erneut
+    title: Cards (Variation)
+  - src: /images/gallery/hero-demo.svg
+    alt: Hero erneut
+    title: Hero (Variation)
+  - src: /images/gallery/theme-demo.svg
+    alt: Theme erneut
+    title: Theme (Variation)

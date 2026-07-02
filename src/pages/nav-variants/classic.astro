@@ -1,0 +1,113 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  lang="de"
+  title="Classic Header — Nav-Varianten"
+  pathname="/nav-variants/classic/"
+  alternateHref="/en/nav-variants/classic/"
+  headerVariant="classic"
+  description="Demo des Classic-Headers mit Slot-System und ThemeToggle + LanguageSwitch als Fallback."
+>
+  <article class="ew-variant-showcase">
+    <div class="ew-variant-showcase__inner">
+      <h1>Classic Header</h1>
+      <p class="ew-variant-showcase__lead">
+        Der Standard-Header mit klebrigem Verhalten (<code>position: sticky</code>).
+        Navigation links, Aktions-Slot rechts. ThemeToggle und LanguageSwitch
+        erscheinen automatisch als Fallback-Inhalt des <code>actions</code>-Slots.
+      </p>
+
+      <section class="ew-variant-showcase__section">
+        <h2>Slot-System</h2>
+        <p>
+          Jeder Header in der Varianten-Familie exportiert einen benannten Slot <code>actions</code>.
+          Wenn kein Slot-Inhalt übergeben wird, werden ThemeToggle + LanguageSwitch als
+          Fallback gerendert — vollständig rückwärtskompatibel mit bestehenden Instanzen.
+        </p>
+        <pre class="ew-variant-showcase__code"><code>{'<!-- Fallback: ThemeToggle + LanguageSwitch -->\n<Header siteName="..." navItems={navItems} currentLang="de" pathname="/"\n        alternateHref="/en/" />\n\n<!-- Individuell: eigene Aktionsleiste -->\n<Header siteName="..." navItems={navItems} currentLang="de" pathname="/">\n  <fragment slot="actions">\n    <MyAuthButton />\n  </fragment>\n</Header>'}</code></pre>
+      </section>
+
+      <section class="ew-variant-showcase__section">
+        <h2>Eigenschaften</h2>
+        <ul class="ew-variant-showcase__list">
+          <li><code>position: sticky</code> — Klebt am oberen Rand des Viewports</li>
+          <li>Mobile Hamburger-Menü mit zugänglichen ARIA-Attributen</li>
+          <li>Scoped JS — funktioniert auch bei mehreren Headern auf einer Seite</li>
+          <li><code>data-testid="header-classic"</code> für E2E-Tests</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .ew-variant-showcase {
+    padding: var(--ew-space-8) var(--ew-space-5) var(--ew-space-10);
+  }
+  .ew-variant-showcase__inner {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .ew-variant-showcase h1 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-3xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-variant-showcase__lead {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-lg);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    margin: 0 0 var(--ew-space-7);
+  }
+  .ew-variant-showcase__section {
+    margin-bottom: var(--ew-space-7);
+  }
+  .ew-variant-showcase__section h2 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-variant-showcase__section p,
+  .ew-variant-showcase__lead {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-variant-showcase__code {
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-md);
+    padding: var(--ew-space-4);
+    overflow-x: auto;
+    font-size: var(--ew-text-sm);
+    line-height: var(--ew-leading-loose);
+    margin: 0;
+  }
+  .ew-variant-showcase__list {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    padding-left: var(--ew-space-5);
+    margin: 0;
+  }
+  .ew-variant-showcase__list li {
+    margin-bottom: var(--ew-space-2);
+  }
+  code {
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.35em;
+    font-size: 0.9em;
+  }
+</style>

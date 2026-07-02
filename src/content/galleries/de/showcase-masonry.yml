@@ -1,0 +1,25 @@
+kind: masonry-grid
+locale: de
+translationKey: showcase-masonry
+title: Mosaik-Raster-Beispiel
+columns: 3
+gap: md
+items:
+  - src: /images/gallery/hero-demo.svg
+    alt: Hero Komponente
+    caption: Hero
+  - src: /images/gallery/cards-demo.svg
+    alt: Card Grid
+    caption: Cards
+  - src: /images/gallery/theme-demo.svg
+    alt: Theme Toggle
+    caption: Theme
+  - src: /images/gallery/cards-demo.svg
+    alt: Card Grid erneut
+    caption: Cards erneut
+  - src: /images/gallery/hero-demo.svg
+    alt: Hero Komponente erneut
+    caption: Hero erneut
+  - src: /images/gallery/theme-demo.svg
+    alt: Theme Toggle erneut
+    caption: Theme erneut

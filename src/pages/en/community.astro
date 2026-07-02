@@ -1,0 +1,23 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../layouts/Base.astro';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Prose from '@achimismaili/easy-web-content-blocks/components/Prose';
+import { getCollection, render } from 'astro:content';
+
+const entries = await getCollection('pages', (e) =>
+  e.data.translationKey === 'community' && e.data.locale === 'en'
+);
+const entry = entries[0];
+const { Content } = entry ? await render(entry) : { Content: () => null };
+---
+
+<Base
+  lang="en"
+  title={entry?.data.title ?? 'Community'}
+  pathname="/en/community/"
+  alternateHref="/community/"
+  description={entry?.data.description}
+>
+  {entry && <Prose><Content /></Prose>}
+</Base>

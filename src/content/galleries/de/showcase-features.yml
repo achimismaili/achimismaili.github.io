@@ -1,0 +1,22 @@
+kind: feature-highlight
+locale: de
+translationKey: showcase-features
+title: Funktions-Hervorhebung-Beispiel
+gap: lg
+items:
+  - src: /images/gallery/hero-demo.svg
+    alt: Hero Komponente
+    title: Hero — der Eyecatcher
+    description: Großformatige Einleitungs-Komponente mit Titel, Untertitel und Call-to-Action. Eignet sich als oberster Abschnitt einer Landingpage.
+    href: /about/
+    cta: Mehr zum Hero
+  - src: /images/gallery/cards-demo.svg
+    alt: Card Grid Komponente
+    title: Card Grid — strukturierter Überblick
+    description: Responsive Karten-Raster für Features, Personen oder verlinkte Inhalte. Skaliert von einer Spalte (Mobil) bis vier Spalten (Desktop).
+    href: /blog/
+    cta: Beispiele im Blog
+  - src: /images/gallery/theme-demo.svg
+    alt: Theme Toggle Komponente
+    title: Theme Toggle — Hell/Dunkel
+    description: Ein-Klick-Wechsel zwischen hellem und dunklem Modus. Speichert die Auswahl pro Browser über CSS-Custom-Properties.

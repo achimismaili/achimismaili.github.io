@@ -1,0 +1,156 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../layouts/Base.astro';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import GallerySection from '@achimismaili/easy-web-content-blocks/components/GallerySection';
+import { getEntry } from 'astro:content';
+
+const heroSliderEntry = await getEntry('galleries', 'en/home-hero');
+const imageGridEntry = await getEntry('galleries', 'en/about-component-preview');
+const carouselEntry = await getEntry('galleries', 'en/showcase-carousel');
+const masonryEntry = await getEntry('galleries', 'en/showcase-masonry');
+const featuresEntry = await getEntry('galleries', 'en/showcase-features');
+const lightboxEntry = await getEntry('galleries', 'en/showcase-lightbox');
+
+const sections = [
+  {
+    kind: 'hero-slider',
+    title: 'Hero Slider',
+    description: 'Full-bleed editorial carousel with title, subtitle, and optional CTA per slide. Ideal as the top section of a landing page.',
+    entry: heroSliderEntry,
+  },
+  {
+    kind: 'image-grid',
+    title: 'Image Grid',
+    description: 'Static N-column grid with uniform image sizing. Suitable for component previews, team photos, or sponsors.',
+    entry: imageGridEntry,
+  },
+  {
+    kind: 'carousel',
+    title: 'Carousel',
+    description: 'Image slider with optional captions. Constrained width, no per-slide CTA — for galleries within a page.',
+    entry: carouselEntry,
+  },
+  {
+    kind: 'masonry-grid',
+    title: 'Masonry Grid',
+    description: 'Pinterest-style variable-height grid via CSS columns. Suitable for photography and portfolios.',
+    entry: masonryEntry,
+  },
+  {
+    kind: 'feature-highlight',
+    title: 'Feature Highlight',
+    description: 'Alternating image-and-text rows with optional CTA. Suitable for product features or service descriptions.',
+    entry: featuresEntry,
+  },
+  {
+    kind: 'lightbox-grid',
+    title: 'Lightbox Grid',
+    description: 'Uniform grid with click-to-expand modal. Keyboard navigation: Esc closes, arrow keys navigate. For photo albums.',
+    entry: lightboxEntry,
+  },
+];
+---
+
+<Base
+  lang="en"
+  title="Components — Gallery Variants"
+  pathname="/en/components/"
+  alternateHref="/components/"
+  description="Overview of all available gallery components in the easy-web ecosystem."
+>
+  <article class="ew-components-intro">
+    <div class="ew-components-intro__inner">
+      <h1>Gallery Components</h1>
+      <p>
+        Overview of all six gallery variants in the easy-web ecosystem. Each variant
+        is selected via a <code>kind</code> field in CMS entries under
+        <code>src/content/galleries/</code> and rendered on pages via
+        <code>&lt;GallerySection /&gt;</code>.
+      </p>
+    </div>
+  </article>
+
+  {sections.map((s, i) => (
+    <article class="ew-components-section" id={s.kind}>
+      <div class="ew-components-section__header">
+        <h2>{i + 1}. {s.title} <code>({s.kind})</code></h2>
+        <p>{s.description}</p>
+      </div>
+      <GallerySection entry={s.entry} />
+    </article>
+  ))}
+</Base>
+
+<style>
+  .ew-components-intro {
+    padding: var(--ew-space-8) var(--ew-space-5) 0;
+  }
+  .ew-components-intro__inner {
+    max-width: 45rem;
+    margin: 0 auto;
+  }
+  .ew-components-intro h1 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-3xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-components-intro p {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    margin: 0;
+    line-height: var(--ew-leading-loose);
+  }
+  .ew-components-intro code {
+    font-family: var(--ew-font-mono);
+    font-size: 0.9em;
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.35em;
+  }
+
+  .ew-components-section {
+    border-top: 1px solid var(--ew-border);
+    margin-top: var(--ew-space-7);
+  }
+  .ew-components-section:first-of-type {
+    border-top: none;
+    margin-top: var(--ew-space-7);
+  }
+
+  .ew-components-section__header {
+    padding: var(--ew-space-7) var(--ew-space-5) 0;
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+  .ew-components-section__header h2 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-3);
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-components-section__header h2 code {
+    font-family: var(--ew-font-mono);
+    font-size: 0.75em;
+    color: var(--ew-muted);
+    font-weight: 400;
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.4em;
+    margin-left: var(--ew-space-2);
+  }
+  .ew-components-section__header p {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-muted);
+    margin: 0;
+    line-height: var(--ew-leading-normal);
+    max-width: 45rem;
+  }
+</style>

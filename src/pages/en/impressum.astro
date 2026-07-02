@@ -1,0 +1,27 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../layouts/Base.astro';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import LegalLayout from '@achimismaili/easy-web-content-blocks/components/LegalLayout';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import LanguageNotice from '@achimismaili/easy-web-content-blocks/components/LanguageNotice';
+import { getCollection, render } from 'astro:content';
+
+const entries = await getCollection('pages', (e) =>
+  e.data.translationKey === 'impressum' && e.data.locale === 'en'
+);
+const entry = entries[0];
+const { Content } = entry ? await render(entry) : { Content: () => null };
+---
+
+<Base
+  lang="en"
+  title={entry?.data.title ?? 'Imprint'}
+  pathname="/en/impressum/"
+  alternateHref="/impressum/"
+>
+  <LanguageNotice message="This is a courtesy translation. The German version is legally binding." />
+  <LegalLayout title={entry?.data.title ?? 'Imprint'}>
+    {entry && <Content />}
+  </LegalLayout>
+</Base>

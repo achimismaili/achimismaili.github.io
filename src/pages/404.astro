@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base lang="de" title="404 – Seite nicht gefunden" pathname="/404">
+  <main style="text-align: center; padding: var(--ew-space-9, 4rem) var(--ew-space-5, 1.25rem);">
+    <div style="max-width: 42rem; margin: 0 auto;">
+      <!-- German -->
+      <h1>Seite nicht gefunden</h1>
+      <p>Die angeforderte Seite existiert nicht.</p>
+      <a href="/" style="color: var(--ew-primary);">Zur Startseite →</a>
+
+      <hr style="margin: var(--ew-space-6, 2rem) auto; max-width: 8rem; border-color: var(--ew-border, currentColor); opacity: 0.3;" />
+
+      <!-- English -->
+      <h2 lang="en">Page not found</h2>
+      <p lang="en">The requested page does not exist.</p>
+      <a href="/en/" lang="en" style="color: var(--ew-primary);">Go to homepage →</a>
+    </div>
+  </main>
+</Base>

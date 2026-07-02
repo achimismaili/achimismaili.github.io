@@ -1,0 +1,112 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  lang="de"
+  title="Vorlage — Coming Soon"
+  pathname="/templates/coming-soon/"
+  alternateHref="/en/templates/coming-soon/"
+  description="Vorschau der Coming-Soon-Startseiten-Vorlage."
+>
+  <main class="ew-tpl-coming-soon">
+    <img
+      class="ew-tpl-coming-soon__bg"
+      src="/images/gallery/hero-demo.svg"
+      alt=""
+      aria-hidden="true"
+    />
+    <div class="ew-tpl-coming-soon__overlay"></div>
+    <div class="ew-tpl-coming-soon__content">
+      <p class="ew-tpl-coming-soon__eyebrow">Vorlage: coming-soon</p>
+      <h1 class="ew-tpl-coming-soon__title">Bald verfügbar</h1>
+      <p class="ew-tpl-coming-soon__subtitle">
+        Wir feilen noch an den letzten Details. Schauen Sie bald wieder vorbei.
+      </p>
+      <a class="ew-tpl-coming-soon__cta" href="mailto:hello@example.com">
+        Benachrichtigt werden
+      </a>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .ew-tpl-coming-soon {
+    position: relative;
+    min-height: calc(100vh - 4rem);
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ew-tpl-coming-soon__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  .ew-tpl-coming-soon__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85));
+    z-index: 1;
+  }
+  .ew-tpl-coming-soon__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: clamp(1rem, 4vw, 3rem);
+    max-width: 48rem;
+  }
+  .ew-tpl-coming-soon__eyebrow {
+    font-family: var(--ew-font-mono);
+    font-size: var(--ew-text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-tpl-coming-soon__title {
+    font-family: var(--ew-font-sans);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0 0 var(--ew-space-4);
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+  .ew-tpl-coming-soon__subtitle {
+    font-family: var(--ew-font-sans);
+    font-size: clamp(1rem, 2.4vw, 1.375rem);
+    line-height: var(--ew-leading-normal);
+    margin: 0 0 var(--ew-space-6);
+    opacity: 0.95;
+  }
+  .ew-tpl-coming-soon__cta {
+    display: inline-block;
+    background: #fff;
+    color: #111;
+    padding: var(--ew-space-3) var(--ew-space-7);
+    border-radius: var(--ew-radius-full);
+    text-decoration: none;
+    font-family: var(--ew-font-sans);
+    font-weight: 600;
+    font-size: var(--ew-text-base);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ew-tpl-coming-soon__cta:hover,
+  .ew-tpl-coming-soon__cta:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
+  .ew-tpl-coming-soon__cta:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+</style>

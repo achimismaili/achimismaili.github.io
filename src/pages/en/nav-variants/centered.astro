@@ -1,0 +1,100 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../../layouts/Base.astro';
+---
+
+<Base
+  lang="en"
+  title="Centered Header — Nav Variants"
+  pathname="/en/nav-variants/centered/"
+  alternateHref="/nav-variants/centered/"
+  headerVariant="centered"
+  description="Demo of the Centered header: brand name centered, navigation split left and right."
+>
+  <article class="ew-variant-showcase">
+    <div class="ew-variant-showcase__inner">
+      <h1>Centered Header</h1>
+      <p class="ew-variant-showcase__lead">
+        Brand name in the center, navigation links split left and right.
+        On mobile, the navigation collapses into a hamburger menu.
+        Same props and <code>actions</code> slot as the Classic header.
+      </p>
+
+      <section class="ew-variant-showcase__section">
+        <h2>Layout logic</h2>
+        <p>
+          Nav items are split in half at render time. The first half appears to the left
+          of the brand, the second half to the right alongside the actions.
+          With an odd number of links, the extra link goes to the left side.
+        </p>
+      </section>
+
+      <section class="ew-variant-showcase__section">
+        <h2>Characteristics</h2>
+        <ul class="ew-variant-showcase__list">
+          <li><code>position: sticky</code> — same as Classic</li>
+          <li>Split nav: first half left, second half + actions right</li>
+          <li><code>data-testid="header-centered"</code> for E2E tests</li>
+          <li>Mobile: hamburger opens all links vertically</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .ew-variant-showcase {
+    padding: var(--ew-space-8) var(--ew-space-5) var(--ew-space-10);
+  }
+  .ew-variant-showcase__inner {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .ew-variant-showcase h1 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-3xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-variant-showcase__lead {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-lg);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    margin: 0 0 var(--ew-space-7);
+  }
+  .ew-variant-showcase__section {
+    margin-bottom: var(--ew-space-7);
+  }
+  .ew-variant-showcase__section h2 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-variant-showcase__section p {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-variant-showcase__list {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    padding-left: var(--ew-space-5);
+    margin: 0;
+  }
+  .ew-variant-showcase__list li { margin-bottom: var(--ew-space-2); }
+  code {
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.35em;
+    font-size: 0.9em;
+  }
+</style>

@@ -1,0 +1,176 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../layouts/Base.astro';
+
+const variants = [
+  {
+    slug: 'classic',
+    title: 'Classic',
+    description: 'Der Standard-Header mit klebrigem Verhalten. Navigation links, Aktionen rechts. Slot-System ermöglicht individuelle Aktionsleiste.',
+    notes: 'Fallback: ThemeToggle + LanguageSwitch',
+  },
+  {
+    slug: 'centered',
+    title: 'Centered',
+    description: 'Logo/Markenname in der Mitte, Navigationslinks links und rechts aufgeteilt. Ideal für symmetrische Layouts.',
+    notes: 'Gleiche Props und Slot wie Classic',
+  },
+  {
+    slug: 'hide-on-scroll',
+    title: 'Hide on Scroll',
+    description: 'Header blendet sich beim Scrollen nach unten aus und erscheint beim Hochscrollen wieder. Position: fixed mit Body-Padding-Ausgleich.',
+    notes: 'Scroll-Richtung + requestAnimationFrame',
+  },
+  {
+    slug: 'flyout',
+    title: 'Flyout',
+    description: 'Nav-Links mit children[] zeigen ein Dropdown-Panel beim Hover (Desktop) und Klick (Mobil). Vollständig tastaturzugänglich.',
+    notes: 'aria-expanded, aria-haspopup, Esc zum Schließen',
+  },
+];
+---
+
+<Base
+  lang="de"
+  title="Nav-Varianten — Header-Varianten"
+  pathname="/nav-variants/"
+  alternateHref="/en/nav-variants/"
+  description="Übersicht der vier Header-Varianten des Slot-Systems."
+>
+  <article class="ew-nav-variants-intro">
+    <div class="ew-nav-variants-intro__inner">
+      <h1>Header-Varianten</h1>
+      <p>
+        Vier strukturelle Header-Varianten auf Basis des <code>actions</code>-Slots.
+        Jede Variante unterstützt denselben Props-Satz und gibt Instanzen volle Kontrolle
+        über die Aktionsleiste — von ThemeToggle und LanguageSwitch bis hin zu
+        Auth-Schaltflächen oder beliebigen Astro-Komponenten.
+      </p>
+    </div>
+  </article>
+
+  <section class="ew-nav-variants-grid-section">
+    <div class="ew-nav-variants-grid">
+      {variants.map((v) => (
+        <a class="ew-variant-card" href={`/nav-variants/${v.slug}/`}>
+          <div class="ew-variant-card__body">
+            <p class="ew-variant-card__slug"><code>{v.slug}</code></p>
+            <h2 class="ew-variant-card__title">{v.title}</h2>
+            <p class="ew-variant-card__description">{v.description}</p>
+            <p class="ew-variant-card__notes"><strong>Hinweis:</strong> {v.notes}</p>
+            <span class="ew-variant-card__cta">Demo ansehen →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ew-nav-variants-intro {
+    padding: var(--ew-space-8) var(--ew-space-5) 0;
+  }
+  .ew-nav-variants-intro__inner {
+    max-width: 45rem;
+    margin: 0 auto;
+  }
+  .ew-nav-variants-intro h1 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-3xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-nav-variants-intro p {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    margin: 0;
+    line-height: var(--ew-leading-loose);
+  }
+  .ew-nav-variants-intro code {
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.35em;
+  }
+
+  .ew-nav-variants-grid-section {
+    padding: var(--ew-space-7) var(--ew-space-5) var(--ew-space-9);
+  }
+  .ew-nav-variants-grid {
+    max-width: 72rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--ew-space-5);
+  }
+  @media (min-width: 768px) {
+    .ew-nav-variants-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .ew-variant-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--ew-surface);
+    border: 1px solid var(--ew-border);
+    border-radius: var(--ew-radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ew-variant-card:hover,
+  .ew-variant-card:focus-visible {
+    border-color: var(--ew-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  .ew-variant-card:focus-visible {
+    outline: 2px solid var(--ew-primary);
+    outline-offset: 2px;
+  }
+  .ew-variant-card__body {
+    padding: var(--ew-space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--ew-space-2);
+  }
+  .ew-variant-card__slug code {
+    font-family: var(--ew-font-mono);
+    font-size: var(--ew-text-xs);
+    color: var(--ew-muted);
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.4em;
+  }
+  .ew-variant-card__title {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0;
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-variant-card__description {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    margin: 0;
+    line-height: var(--ew-leading-normal);
+  }
+  .ew-variant-card__notes {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-sm);
+    color: var(--ew-muted);
+    margin: 0;
+    line-height: var(--ew-leading-normal);
+  }
+  .ew-variant-card__cta {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    font-weight: 600;
+    color: var(--ew-primary);
+    margin-top: var(--ew-space-2);
+  }
+</style>

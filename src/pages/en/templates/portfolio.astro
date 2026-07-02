@@ -1,0 +1,148 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../../layouts/Base.astro';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import GalleryLightboxGrid from '@achimismaili/easy-web-content-blocks/components/GalleryLightboxGrid';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import CtaSection from '@achimismaili/easy-web-content-blocks/components/CtaSection';
+
+const works = [
+  { src: '/images/gallery/hero-demo.svg', alt: 'Project One', title: 'Project One', description: 'A short description of the first project.' },
+  { src: '/images/gallery/cards-demo.svg', alt: 'Project Two', title: 'Project Two', description: 'A short description of the second project.' },
+  { src: '/images/gallery/theme-demo.svg', alt: 'Project Three', title: 'Project Three', description: 'A short description of the third project.' },
+  { src: '/images/gallery/cards-demo.svg', alt: 'Project Four', title: 'Project Four', description: 'A short description of the fourth project.' },
+  { src: '/images/gallery/hero-demo.svg', alt: 'Project Five', title: 'Project Five', description: 'A short description of the fifth project.' },
+  { src: '/images/gallery/theme-demo.svg', alt: 'Project Six', title: 'Project Six', description: 'A short description of the sixth project.' },
+];
+---
+
+<Base
+  lang="en"
+  title="Template — Portfolio"
+  pathname="/en/templates/portfolio/"
+  alternateHref="/templates/portfolio/"
+  description="Preview of the portfolio homepage template."
+>
+  <section class="ew-tpl-portfolio-hero">
+    <img
+      class="ew-tpl-portfolio-hero__bg"
+      src="/images/gallery/hero-demo.svg"
+      alt=""
+      aria-hidden="true"
+    />
+    <div class="ew-tpl-portfolio-hero__overlay"></div>
+    <div class="ew-tpl-portfolio-hero__content">
+      <p class="ew-tpl-portfolio-hero__eyebrow">Template: portfolio</p>
+      <h1 class="ew-tpl-portfolio-hero__title">Sample Studio</h1>
+      <p class="ew-tpl-portfolio-hero__subtitle">
+        Selected work spanning design, development, and visual identity.
+      </p>
+    </div>
+  </section>
+
+  <section class="ew-tpl-portfolio-about">
+    <div class="ew-tpl-portfolio-about__inner">
+      <h2>About the studio</h2>
+      <p>
+        We work on brand identities, digital products, and printed editions.
+        This selection is a cross-section of our recent projects.
+      </p>
+    </div>
+  </section>
+
+  <GalleryLightboxGrid
+    title="Selected Work"
+    columns={3}
+    gap="md"
+    aspectRatio="square"
+    items={works}
+  />
+
+  <CtaSection
+    heading="Have a project in mind?"
+    body="Drop us a line — we love a fresh challenge."
+    buttonLabel="Get in touch"
+    buttonHref="mailto:hello@example.com"
+    variant="primary"
+  />
+</Base>
+
+<style>
+  .ew-tpl-portfolio-hero {
+    position: relative;
+    min-height: 28rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ew-tpl-portfolio-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .ew-tpl-portfolio-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+  }
+  .ew-tpl-portfolio-hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: var(--ew-space-7) var(--ew-space-5);
+    max-width: 56rem;
+  }
+  .ew-tpl-portfolio-hero__eyebrow {
+    font-family: var(--ew-font-mono);
+    font-size: var(--ew-text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-tpl-portfolio-hero__title {
+    font-family: var(--ew-font-sans);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0 0 var(--ew-space-4);
+  }
+  .ew-tpl-portfolio-hero__subtitle {
+    font-family: var(--ew-font-sans);
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    line-height: var(--ew-leading-normal);
+    margin: 0;
+    opacity: 0.95;
+  }
+
+  .ew-tpl-portfolio-about {
+    padding: var(--ew-space-8) var(--ew-space-5);
+  }
+  .ew-tpl-portfolio-about__inner {
+    max-width: 45rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .ew-tpl-portfolio-about h2 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-tpl-portfolio-about p {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    margin: 0;
+    line-height: var(--ew-leading-loose);
+  }
+</style>

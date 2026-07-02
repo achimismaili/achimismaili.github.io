@@ -1,0 +1,20 @@
+
+[data-theme="business"] {
+  --ew-primary: #1a365d;
+  --ew-on-primary: #ffffff;
+  --ew-surface: #f7fafc;
+  --ew-on-surface: #1a202c;
+  --ew-surface-muted: #edf2f7;
+  --ew-border: #a0aec0;
+  --ew-muted: #4a5568;
+}
+
+[data-theme="creative"] {
+  --ew-primary: #6b21a8;
+  --ew-on-primary: #ffffff;
+  --ew-surface: #fef3c7;
+  --ew-on-surface: #1c0a34;
+  --ew-surface-muted: #fde68a;
+  --ew-border: #fbbf24;
+  --ew-muted: #92400e;
+}

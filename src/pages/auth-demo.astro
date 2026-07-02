@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Base.astro';
+
+// The auth integration is demonstrated via the AuthShell component
+// mounted in Base.astro layout — visible as "Sign in" button in the header.
+---
+
+<Layout lang="de" title="Auth Demo" pathname="/auth-demo/">
+  <main style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+    <h1>Auth Demo</h1>
+    <p>Diese Seite demonstriert die <code>@achimismaili/easy-web-auth</code> Integration.</p>
+
+    <section style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--ew-border, #e5e7eb); border-radius: 0.5rem;">
+      <h2 style="margin-top: 0;">Login-Status</h2>
+      <p>
+        Die <strong>Anmelde-Schaltfläche</strong> im Header (↑) wird über
+        <code>AuthShell</code> mit <code>client:only="react"</code> gerendert —
+        ein einzelnes React-Island, das <code>AuthProvider</code>, <code>LoginButton</code>
+        und <code>UserAvatar</code> enthält.
+      </p>
+      <p>
+        Nach dem Einloggen erscheinen Ihre Initialen als Avatar neben der Schaltfläche.
+      </p>
+    </section>
+
+    <section style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--ew-border, #e5e7eb); border-radius: 0.5rem;">
+      <h2 style="margin-top: 0;">Verfügbare Komponenten</h2>
+      <ul>
+        <li><code>AuthProvider</code> — MSAL.js Provider (MsalProvider-Wrapper)</li>
+        <li><code>LoginButton</code> — "Anmelden" / "Abmelden" Schaltfläche</li>
+        <li><code>UserAvatar</code> — Benutzer-Initialen-Kreis</li>
+        <li><code>ProtectedContent</code> — Inhalt nur für eingeloggte Benutzer</li>
+        <li><code>SharePointGallery</code> — Bildergalerie aus SharePoint</li>
+        <li><code>SharePointFileList</code> — Dateiliste aus SharePoint</li>
+        <li><code>SharePointListView</code> — SharePoint-Listenansicht</li>
+      </ul>
+    </section>
+  </main>
+</Layout>

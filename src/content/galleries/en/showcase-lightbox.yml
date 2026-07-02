@@ -1,0 +1,29 @@
+kind: lightbox-grid
+locale: en
+translationKey: showcase-lightbox
+title: Lightbox Grid Example
+columns: 3
+gap: md
+aspectRatio: square
+items:
+  - src: /images/gallery/hero-demo.svg
+    alt: Hero component
+    title: Hero
+    description: Large-format introduction component. Click to open full view.
+  - src: /images/gallery/cards-demo.svg
+    alt: Card Grid
+    title: Card Grid
+    description: Responsive card grid. Click to open full view.
+  - src: /images/gallery/theme-demo.svg
+    alt: Theme Toggle
+    title: Theme Toggle
+    description: Light/dark switcher. Click to open full view.
+  - src: /images/gallery/cards-demo.svg
+    alt: Cards again
+    title: Cards (variation)
+  - src: /images/gallery/hero-demo.svg
+    alt: Hero again
+    title: Hero (variation)
+  - src: /images/gallery/theme-demo.svg
+    alt: Theme again
+    title: Theme (variation)

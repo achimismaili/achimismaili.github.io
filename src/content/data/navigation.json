@@ -1,0 +1,87 @@
+{
+  "companyName": "ITCI",
+  "defaultTitle": "Development ismaili.de",
+  "url": "https://dev.ismaili.de",
+  "main": {
+    "de": [
+      {
+        "label": "Start",
+        "href": "/",
+        "order": 1
+      },
+      {
+        "label": "Über mich",
+        "href": "/about/",
+        "order": 2
+      },
+      {
+        "label": "Open Source",
+        "href": "/open-source/",
+        "order": 3
+      },
+      {
+        "label": "Community",
+        "href": "/community/",
+        "order": 4
+      },
+      {
+        "label": "Kontakt",
+        "href": "/kontakt/",
+        "order": 5
+      }
+    ],
+    "en": [
+      {
+        "label": "Home",
+        "href": "/en/",
+        "order": 1
+      },
+      {
+        "label": "About",
+        "href": "/en/about/",
+        "order": 2
+      },
+      {
+        "label": "Open Source",
+        "href": "/en/open-source/",
+        "order": 3
+      },
+      {
+        "label": "Community",
+        "href": "/en/community/",
+        "order": 4
+      },
+      {
+        "label": "Contact",
+        "href": "/en/contact/",
+        "order": 5
+      }
+    ]
+  },
+  "legal": {
+    "de": [
+      {
+        "label": "Impressum",
+        "href": "/impressum/",
+        "order": 1
+      },
+      {
+        "label": "Datenschutz",
+        "href": "/datenschutz/",
+        "order": 2
+      }
+    ],
+    "en": [
+      {
+        "label": "Imprint",
+        "href": "/en/impressum/",
+        "order": 1
+      },
+      {
+        "label": "Privacy",
+        "href": "/en/privacy/",
+        "order": 2
+      }
+    ]
+  }
+}

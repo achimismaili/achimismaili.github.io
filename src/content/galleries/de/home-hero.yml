@@ -1,0 +1,25 @@
+kind: hero-slider
+locale: de
+translationKey: home-hero
+autoplay: true
+interval: 6000
+height: lg
+slides:
+  - src: /images/gallery/hero-demo.svg
+    alt: Beispielbild eines Hero-Banners
+    title: Willkommen bei dev.ismaili.de
+    subtitle: Die Pilot-Instanz des easy-web-Ökosystems
+    href: /about/
+    cta: Mehr erfahren
+  - src: /images/gallery/cards-demo.svg
+    alt: Beispielbild von Karten-Komponenten
+    title: Wiederverwendbare Komponenten
+    subtitle: Header, Hero, Cards, Galerien — alles aus einem Paket
+    href: /blog/
+    cta: Zum Blog
+  - src: /images/gallery/theme-demo.svg
+    alt: Beispielbild eines Theme-Wechslers
+    title: Hell- und Dunkel-Modus
+    subtitle: Theming über CSS-Custom-Properties
+    href: /about/
+    cta: Details ansehen

@@ -1,0 +1,135 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../../layouts/Base.astro';
+---
+
+<Base
+  lang="en"
+  title="Hide on Scroll Header — Nav Variants"
+  pathname="/en/nav-variants/hide-on-scroll/"
+  alternateHref="/nav-variants/hide-on-scroll/"
+  headerVariant="hide-on-scroll"
+  description="Demo of the Hide-on-Scroll header: disappears when scrolling down, reappears when scrolling up."
+>
+  <article class="ew-variant-showcase">
+    <div class="ew-variant-showcase__inner">
+      <h1>Hide on Scroll Header</h1>
+      <p class="ew-variant-showcase__lead">
+        Scroll down — the header disappears. Scroll back up — it reappears.
+        Implemented with <code>position: fixed</code>, <code>transform: translateY(-100%)</code>
+        and body padding compensation.
+      </p>
+    </div>
+  </article>
+
+  <section class="ew-variant-showcase-section">
+    <div class="ew-variant-showcase-section__inner">
+      <h2>How it works</h2>
+      <p>
+        The header uses <code>position: fixed</code> instead of <code>sticky</code> so
+        it can be removed from the document flow. JavaScript measures the header height
+        on load and sets <code>document.body.style.paddingTop</code> accordingly to
+        prevent layout shifts.
+      </p>
+      <p>
+        Scroll direction is detected using <code>requestAnimationFrame</code>.
+        An 80px threshold prevents accidental hiding on small scroll movements near
+        the top of the page.
+      </p>
+    </div>
+  </section>
+
+  <section class="ew-variant-showcase-section ew-variant-showcase-section--alt">
+    <div class="ew-variant-showcase-section__inner">
+      <h2>Use case</h2>
+      <p>
+        Best for pages where content should take centre stage and the header can
+        temporarily yield space. Ideal for long articles, documentation pages, or
+        portfolio pages.
+      </p>
+      <p>
+        The header returns immediately when scrolling back up, so navigation is
+        always accessible.
+      </p>
+    </div>
+  </section>
+
+  <section class="ew-variant-showcase-section">
+    <div class="ew-variant-showcase-section__inner">
+      <h2>Technical details</h2>
+      <ul class="ew-variant-showcase-list">
+        <li><code>position: fixed</code> — not <code>sticky</code></li>
+        <li><code>transition: transform 0.3s ease</code> for smooth animation</li>
+        <li>Body padding via <code>ResizeObserver</code> — adjusts dynamically</li>
+        <li>Scroll listener with <code>passive: true</code> for performance</li>
+        <li>Scoped JS — no global <code>document.querySelector</code></li>
+        <li><code>data-testid="header-hide-on-scroll"</code> for E2E tests</li>
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ew-variant-showcase {
+    padding: var(--ew-space-8) var(--ew-space-5) var(--ew-space-6);
+  }
+  .ew-variant-showcase__inner {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .ew-variant-showcase h1 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-3xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-variant-showcase__lead {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-lg);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    margin: 0;
+  }
+  .ew-variant-showcase-section {
+    padding: var(--ew-space-8) var(--ew-space-5);
+    border-top: 1px solid var(--ew-border);
+  }
+  .ew-variant-showcase-section--alt {
+    background: var(--ew-surface-muted);
+  }
+  .ew-variant-showcase-section__inner {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .ew-variant-showcase-section h2 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+  }
+  .ew-variant-showcase-section p {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-variant-showcase-list {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    padding-left: var(--ew-space-5);
+    margin: 0;
+  }
+  .ew-variant-showcase-list li { margin-bottom: var(--ew-space-2); }
+  code {
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.35em;
+    font-size: 0.9em;
+  }
+</style>

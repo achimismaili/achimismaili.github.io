@@ -1,0 +1,189 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../layouts/Base.astro';
+
+const templates = [
+  {
+    slug: 'classic-landing',
+    title: 'Classic Landing',
+    description: 'Hero, Funktionen, CTA — die klassische Landingpage. Geeignet für Software, Dienstleistungen und Produkte.',
+    bestFor: 'SaaS, Produkte, Dienstleistungen',
+    img: '/images/gallery/cards-demo.svg',
+  },
+  {
+    slug: 'magazine',
+    title: 'Magazine',
+    description: 'Aktueller Beitrag prominent, gefolgt von einem Raster weiterer Beiträge. Geeignet für Blogs und redaktionelle Seiten.',
+    bestFor: 'Blogs, Redaktionen, News',
+    img: '/images/gallery/hero-demo.svg',
+  },
+  {
+    slug: 'portfolio',
+    title: 'Portfolio',
+    description: 'Bildgewichtetes Layout mit Lightbox-Galerie und kurzem Über-uns-Text. Geeignet für Kreative und Agenturen.',
+    bestFor: 'Kreative, Agenturen, Fotografen',
+    img: '/images/gallery/theme-demo.svg',
+  },
+  {
+    slug: 'coming-soon',
+    title: 'Coming Soon',
+    description: 'Vollbild-Hero mit Titel und Untertitel — minimalistisch. Geeignet als Pre-Launch-Platzhalter.',
+    bestFor: 'Pre-Launch, einfache Marken',
+    img: '/images/gallery/hero-demo.svg',
+  },
+];
+---
+
+<Base
+  lang="de"
+  title="Vorlagen — Startseiten-Templates"
+  pathname="/templates/"
+  alternateHref="/en/templates/"
+  description="Übersicht der Startseiten-Vorlagen für neue Instanzen."
+>
+  <article class="ew-templates-intro">
+    <div class="ew-templates-intro__inner">
+      <h1>Startseiten-Vorlagen</h1>
+      <p>
+        Vier vollständige Startseiten-Layouts, die als Ausgangspunkt für eine neue
+        Instanz dienen. Jede Vorlage ist eine eigenständige Astro-Datei, die beim
+        Anlegen einer neuen Seite per <code>new-site.ps1</code> kopiert wird.
+        Hier können Sie jede Vorlage live in Aktion sehen.
+      </p>
+    </div>
+  </article>
+
+  <section class="ew-templates-grid-section">
+    <div class="ew-templates-grid">
+      {templates.map((t) => (
+        <a class="ew-template-card" href={`/templates/${t.slug}/`}>
+          <img src={t.img} alt="" class="ew-template-card__img" loading="lazy" aria-hidden="true" />
+          <div class="ew-template-card__body">
+            <p class="ew-template-card__slug"><code>{t.slug}</code></p>
+            <h2 class="ew-template-card__title">{t.title}</h2>
+            <p class="ew-template-card__description">{t.description}</p>
+            <p class="ew-template-card__best-for"><strong>Geeignet für:</strong> {t.bestFor}</p>
+            <span class="ew-template-card__cta">Vorschau ansehen →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ew-templates-intro {
+    padding: var(--ew-space-8) var(--ew-space-5) 0;
+  }
+  .ew-templates-intro__inner {
+    max-width: 45rem;
+    margin: 0 auto;
+  }
+  .ew-templates-intro h1 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-3xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-templates-intro p {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    margin: 0;
+    line-height: var(--ew-leading-loose);
+  }
+  .ew-templates-intro code {
+    font-family: var(--ew-font-mono);
+    font-size: 0.9em;
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.35em;
+  }
+
+  .ew-templates-grid-section {
+    padding: var(--ew-space-7) var(--ew-space-5) var(--ew-space-9);
+  }
+  .ew-templates-grid {
+    max-width: 72rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--ew-space-5);
+  }
+  @media (min-width: 768px) {
+    .ew-templates-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .ew-template-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--ew-surface);
+    border: 1px solid var(--ew-border);
+    border-radius: var(--ew-radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ew-template-card:hover,
+  .ew-template-card:focus-visible {
+    border-color: var(--ew-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  .ew-template-card:focus-visible {
+    outline: 2px solid var(--ew-primary);
+    outline-offset: 2px;
+  }
+  .ew-template-card__img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+  .ew-template-card__body {
+    padding: var(--ew-space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--ew-space-2);
+  }
+  .ew-template-card__slug code {
+    font-family: var(--ew-font-mono);
+    font-size: var(--ew-text-xs);
+    color: var(--ew-muted);
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.4em;
+  }
+  .ew-template-card__title {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0;
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-template-card__description {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    margin: 0;
+    line-height: var(--ew-leading-normal);
+  }
+  .ew-template-card__best-for {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-sm);
+    color: var(--ew-muted);
+    margin: 0;
+    line-height: var(--ew-leading-normal);
+  }
+  .ew-template-card__cta {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    font-weight: 600;
+    color: var(--ew-primary);
+    margin-top: var(--ew-space-2);
+  }
+</style>

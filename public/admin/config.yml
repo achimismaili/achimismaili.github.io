@@ -1,0 +1,640 @@
+backend:
+  name: azure
+  repo: IT-CI/WebSites/dev.ismaili.de
+  tenant_id: 2bf1954a-a312-4596-8a3b-9ff2e50b2ecd
+  app_id: 0cbfd08c-0235-4b61-ae13-5fc1cd25f0a8
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - label: "Blog (de)"
+    name: blog_de
+    folder: "src/content/blog/de"
+    create: true
+    format: frontmatter
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: pubDate, label: "Publish Date", widget: datetime }
+      - { name: draft, label: Draft, widget: boolean, default: false }
+      - { name: locale, label: Locale, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'community-meetup-2026')" }
+      - { name: heroImage, label: "Hero Image", widget: image, required: false }
+
+  - label: "Blog (en)"
+    name: blog_en
+    folder: "src/content/blog/en"
+    create: true
+    format: frontmatter
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: pubDate, label: "Publish Date", widget: datetime }
+      - { name: draft, label: Draft, widget: boolean, default: false }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'community-meetup-2026')" }
+      - { name: heroImage, label: "Hero Image", widget: image, required: false }
+
+  - label: "Seiten (DE)"
+    name: pages_de
+    folder: "src/content/pages"
+    path: "de/{{slug}}"
+    create: true
+    format: frontmatter
+    filter: { field: locale, value: "de" }
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: image, label: Image, widget: image, required: false }
+      - { name: locale, label: Locale, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'community-meetup-2026')" }
+      - { name: layout, label: Layout, widget: string, required: false }
+
+  - label: "Seiten (EN)"
+    name: pages_en
+    folder: "src/content/pages"
+    path: "en/{{slug}}"
+    create: true
+    format: frontmatter
+    filter: { field: locale, value: "en" }
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: image, label: Image, widget: image, required: false }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'community-meetup-2026')" }
+      - { name: layout, label: Layout, widget: string, required: false }
+
+  - label: "Events (DE)"
+    name: events_de
+    folder: "src/content/events"
+    path: "de/{{slug}}"
+    create: true
+    format: frontmatter
+    filter: { field: locale, value: "de" }
+    fields:
+      - { name: title, label: Titel, widget: string }
+      - { name: description, label: Beschreibung, widget: text }
+      - { name: date, label: Datum, widget: datetime }
+      - { name: endDate, label: "Enddatum", widget: datetime, required: false }
+      - { name: location, label: Ort, widget: string, required: false }
+      - { name: locale, label: Sprache, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Übersetzungsschlüssel", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'community-meetup-2026')" }
+      - { name: image, label: Bild, widget: image, required: false }
+      - { name: featured, label: Hervorgehoben, widget: boolean, default: false }
+
+  - label: "Events (EN)"
+    name: events_en
+    folder: "src/content/events"
+    path: "en/{{slug}}"
+    create: true
+    format: frontmatter
+    filter: { field: locale, value: "en" }
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: date, label: Date, widget: datetime }
+      - { name: endDate, label: "End Date", widget: datetime, required: false }
+      - { name: location, label: Location, widget: string, required: false }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'community-meetup-2026')" }
+      - { name: image, label: Image, widget: image, required: false }
+      - { name: featured, label: Featured, widget: boolean, default: false }
+
+  - label: "Personen (DE)"
+    name: persons_de
+    folder: "src/content/persons"
+    path: "de/{{slug}}"
+    create: true
+    format: frontmatter
+    filter: { field: locale, value: "de" }
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: role, label: Rolle, widget: string }
+      - { name: locale, label: Sprache, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Übersetzungsschlüssel", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'max-mustermann')" }
+      - { name: image, label: Foto, widget: image, required: false }
+      - { name: email, label: "E-Mail", widget: string, required: false }
+      - { name: featured, label: Hervorgehoben, widget: boolean, default: false }
+      - { name: order, label: Reihenfolge, widget: number, default: 0 }
+
+  - label: "Persons (EN)"
+    name: persons_en
+    folder: "src/content/persons"
+    path: "en/{{slug}}"
+    create: true
+    format: frontmatter
+    filter: { field: locale, value: "en" }
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: role, label: Role, widget: string }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'max-mustermann')" }
+      - { name: image, label: Photo, widget: image, required: false }
+      - { name: email, label: Email, widget: string, required: false }
+      - { name: featured, label: Featured, widget: boolean, default: false }
+      - { name: order, label: Order, widget: number, default: 0 }
+
+  - label: "Links (DE)"
+    name: links_de
+    folder: "src/content/links"
+    path: "de/{{slug}}"
+    create: true
+    format: frontmatter
+    filter: { field: locale, value: "de" }
+    fields:
+      - { name: title, label: Titel, widget: string }
+      - { name: url, label: URL, widget: string }
+      - { name: description, label: Beschreibung, widget: text, required: false }
+      - { name: category, label: Kategorie, widget: string, required: false }
+      - { name: locale, label: Sprache, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Übersetzungsschlüssel", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'astro-docs')" }
+      - { name: image, label: Bild, widget: image, required: false }
+      - { name: featured, label: Hervorgehoben, widget: boolean, default: false }
+
+  - label: "Links (EN)"
+    name: links_en
+    folder: "src/content/links"
+    path: "en/{{slug}}"
+    create: true
+    format: frontmatter
+    filter: { field: locale, value: "en" }
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: url, label: URL, widget: string }
+      - { name: description, label: Description, widget: text, required: false }
+      - { name: category, label: Category, widget: string, required: false }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'astro-docs')" }
+      - { name: image, label: Image, widget: image, required: false }
+      - { name: featured, label: Featured, widget: boolean, default: false }
+
+  - label: "Galerie: Bildraster (DE)"
+    name: galleries_image_grid_de
+    folder: "src/content/galleries"
+    path: "de/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "image-grid" }
+      - { field: locale, value: "de" }
+    fields:
+      - { name: kind, label: Typ, widget: hidden, default: "image-grid" }
+      - { name: locale, label: Sprache, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Übersetzungsschlüssel", widget: string, hint: "Verbindet DE/EN-Übersetzungen derselben Galerie (z. B. 'about-component-preview')" }
+      - { name: title, label: Titel, widget: string, required: false, hint: "Optionale Überschrift über dem Raster" }
+      - { name: columns, label: Spalten, widget: number, default: 3, value_type: int, min: 2, max: 6, hint: "Empfohlen: 2, 3, 4 oder 6" }
+      - { name: gap, label: Abstand, widget: select, options: ["sm", "md", "lg"], default: "md" }
+      - { name: aspectRatio, label: Bildformat, widget: select, options: ["square", "4/3", "16/9", "auto"], default: "square" }
+      - label: Bilder
+        name: items
+        widget: list
+        fields:
+          - { name: src, label: Bild, widget: image }
+          - { name: alt, label: "Alt-Text", widget: string }
+          - { name: caption, label: Bildunterschrift, widget: string, required: false }
+          - { name: href, label: Link, widget: string, required: false }
+
+  - label: "Gallery: Image Grid (EN)"
+    name: galleries_image_grid_en
+    folder: "src/content/galleries"
+    path: "en/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "image-grid" }
+      - { field: locale, value: "en" }
+    fields:
+      - { name: kind, label: Type, widget: hidden, default: "image-grid" }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations (e.g., 'about-component-preview')" }
+      - { name: title, label: Title, widget: string, required: false, hint: "Optional heading above the grid" }
+      - { name: columns, label: Columns, widget: number, default: 3, value_type: int, min: 2, max: 6, hint: "Recommended: 2, 3, 4 or 6" }
+      - { name: gap, label: Gap, widget: select, options: ["sm", "md", "lg"], default: "md" }
+      - { name: aspectRatio, label: "Aspect Ratio", widget: select, options: ["square", "4/3", "16/9", "auto"], default: "square" }
+      - label: Images
+        name: items
+        widget: list
+        fields:
+          - { name: src, label: Image, widget: image }
+          - { name: alt, label: "Alt Text", widget: string }
+          - { name: caption, label: Caption, widget: string, required: false }
+          - { name: href, label: Link, widget: string, required: false }
+
+  - label: "Galerie: Hero-Slider (DE)"
+    name: galleries_hero_slider_de
+    folder: "src/content/galleries"
+    path: "de/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "hero-slider" }
+      - { field: locale, value: "de" }
+    fields:
+      - { name: kind, label: Typ, widget: hidden, default: "hero-slider" }
+      - { name: locale, label: Sprache, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Übersetzungsschlüssel", widget: string, hint: "Verbindet DE/EN-Übersetzungen desselben Sliders (z. B. 'home-hero')" }
+      - { name: title, label: Titel, widget: string, required: false, hint: "Optionale Überschrift über dem Slider — meist leer lassen" }
+      - { name: autoplay, label: "Automatisch wechseln", widget: boolean, default: true }
+      - { name: interval, label: "Intervall (ms)", widget: number, default: 5000, value_type: int, min: 1000, hint: "Wartezeit zwischen Slides; ignoriert wenn Automatik aus ist" }
+      - { name: height, label: Höhe, widget: select, options: ["sm", "md", "lg", "full"], default: "lg" }
+      - label: Slides
+        name: slides
+        widget: list
+        fields:
+          - { name: src, label: Hintergrundbild, widget: image }
+          - { name: alt, label: "Alt-Text", widget: string }
+          - { name: title, label: Überschrift, widget: string }
+          - { name: subtitle, label: Untertitel, widget: text, required: false }
+          - { name: href, label: "CTA-Link", widget: string, required: false }
+          - { name: cta, label: "CTA-Beschriftung", widget: string, required: false, hint: "Wird nur angezeigt, wenn auch ein Link gesetzt ist" }
+
+  - label: "Gallery: Hero Slider (EN)"
+    name: galleries_hero_slider_en
+    folder: "src/content/galleries"
+    path: "en/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "hero-slider" }
+      - { field: locale, value: "en" }
+    fields:
+      - { name: kind, label: Type, widget: hidden, default: "hero-slider" }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations of this slider (e.g., 'home-hero')" }
+      - { name: title, label: Title, widget: string, required: false, hint: "Optional heading above the slider — usually left blank" }
+      - { name: autoplay, label: Autoplay, widget: boolean, default: true }
+      - { name: interval, label: "Interval (ms)", widget: number, default: 5000, value_type: int, min: 1000, hint: "Time between slides; ignored when autoplay is off" }
+      - { name: height, label: Height, widget: select, options: ["sm", "md", "lg", "full"], default: "lg" }
+      - label: Slides
+        name: slides
+        widget: list
+        fields:
+          - { name: src, label: "Background Image", widget: image }
+          - { name: alt, label: "Alt Text", widget: string }
+          - { name: title, label: Headline, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text, required: false }
+          - { name: href, label: "CTA Link", widget: string, required: false }
+          - { name: cta, label: "CTA Label", widget: string, required: false, hint: "Only shown when a link is also set" }
+
+  - label: "Galerie: Karussell (DE)"
+    name: galleries_carousel_de
+    folder: "src/content/galleries"
+    path: "de/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "carousel" }
+      - { field: locale, value: "de" }
+    fields:
+      - { name: kind, label: Typ, widget: hidden, default: "carousel" }
+      - { name: locale, label: Sprache, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Übersetzungsschlüssel", widget: string, hint: "Verbindet DE/EN-Übersetzungen desselben Karussells" }
+      - { name: title, label: Titel, widget: string, required: false }
+      - { name: autoplay, label: "Automatisch wechseln", widget: boolean, default: false }
+      - { name: interval, label: "Intervall (ms)", widget: number, default: 4000, value_type: int, min: 1000 }
+      - { name: showDots, label: "Punkte anzeigen", widget: boolean, default: true }
+      - { name: showArrows, label: "Pfeile anzeigen", widget: boolean, default: true }
+      - label: Folien
+        name: slides
+        widget: list
+        fields:
+          - { name: src, label: Bild, widget: image }
+          - { name: alt, label: "Alt-Text", widget: string }
+          - { name: caption, label: Bildunterschrift, widget: string, required: false }
+
+  - label: "Gallery: Carousel (EN)"
+    name: galleries_carousel_en
+    folder: "src/content/galleries"
+    path: "en/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "carousel" }
+      - { field: locale, value: "en" }
+    fields:
+      - { name: kind, label: Type, widget: hidden, default: "carousel" }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string, hint: "Unique key linking DE/EN translations of this carousel" }
+      - { name: title, label: Title, widget: string, required: false }
+      - { name: autoplay, label: Autoplay, widget: boolean, default: false }
+      - { name: interval, label: "Interval (ms)", widget: number, default: 4000, value_type: int, min: 1000 }
+      - { name: showDots, label: "Show dots", widget: boolean, default: true }
+      - { name: showArrows, label: "Show arrows", widget: boolean, default: true }
+      - label: Slides
+        name: slides
+        widget: list
+        fields:
+          - { name: src, label: Image, widget: image }
+          - { name: alt, label: "Alt Text", widget: string }
+          - { name: caption, label: Caption, widget: string, required: false }
+
+  - label: "Galerie: Mosaik-Raster (DE)"
+    name: galleries_masonry_grid_de
+    folder: "src/content/galleries"
+    path: "de/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "masonry-grid" }
+      - { field: locale, value: "de" }
+    fields:
+      - { name: kind, label: Typ, widget: hidden, default: "masonry-grid" }
+      - { name: locale, label: Sprache, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Übersetzungsschlüssel", widget: string }
+      - { name: title, label: Titel, widget: string, required: false }
+      - { name: columns, label: Spalten, widget: number, default: 3, value_type: int, min: 2, max: 4 }
+      - { name: gap, label: Abstand, widget: select, options: ["sm", "md", "lg"], default: "md" }
+      - label: Bilder
+        name: items
+        widget: list
+        fields:
+          - { name: src, label: Bild, widget: image }
+          - { name: alt, label: "Alt-Text", widget: string }
+          - { name: caption, label: Bildunterschrift, widget: string, required: false }
+          - { name: href, label: Link, widget: string, required: false }
+
+  - label: "Gallery: Masonry Grid (EN)"
+    name: galleries_masonry_grid_en
+    folder: "src/content/galleries"
+    path: "en/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "masonry-grid" }
+      - { field: locale, value: "en" }
+    fields:
+      - { name: kind, label: Type, widget: hidden, default: "masonry-grid" }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string }
+      - { name: title, label: Title, widget: string, required: false }
+      - { name: columns, label: Columns, widget: number, default: 3, value_type: int, min: 2, max: 4 }
+      - { name: gap, label: Gap, widget: select, options: ["sm", "md", "lg"], default: "md" }
+      - label: Images
+        name: items
+        widget: list
+        fields:
+          - { name: src, label: Image, widget: image }
+          - { name: alt, label: "Alt Text", widget: string }
+          - { name: caption, label: Caption, widget: string, required: false }
+          - { name: href, label: Link, widget: string, required: false }
+
+  - label: "Galerie: Funktions-Hervorhebung (DE)"
+    name: galleries_feature_highlight_de
+    folder: "src/content/galleries"
+    path: "de/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "feature-highlight" }
+      - { field: locale, value: "de" }
+    fields:
+      - { name: kind, label: Typ, widget: hidden, default: "feature-highlight" }
+      - { name: locale, label: Sprache, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Übersetzungsschlüssel", widget: string }
+      - { name: title, label: Titel, widget: string, required: false }
+      - { name: gap, label: Abstand, widget: select, options: ["sm", "md", "lg"], default: "lg" }
+      - label: Einträge
+        name: items
+        widget: list
+        fields:
+          - { name: src, label: Bild, widget: image }
+          - { name: alt, label: "Alt-Text", widget: string }
+          - { name: title, label: Überschrift, widget: string }
+          - { name: description, label: Beschreibung, widget: text }
+          - { name: href, label: Link, widget: string, required: false }
+          - { name: cta, label: "CTA-Beschriftung", widget: string, required: false, hint: "Wird nur angezeigt, wenn auch ein Link gesetzt ist" }
+          - { name: imagePosition, label: "Bildposition", widget: select, options: ["left", "right"], required: false, hint: "Standard: alterniert automatisch (links/rechts)" }
+
+  - label: "Gallery: Feature Highlight (EN)"
+    name: galleries_feature_highlight_en
+    folder: "src/content/galleries"
+    path: "en/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "feature-highlight" }
+      - { field: locale, value: "en" }
+    fields:
+      - { name: kind, label: Type, widget: hidden, default: "feature-highlight" }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string }
+      - { name: title, label: Title, widget: string, required: false }
+      - { name: gap, label: Gap, widget: select, options: ["sm", "md", "lg"], default: "lg" }
+      - label: Items
+        name: items
+        widget: list
+        fields:
+          - { name: src, label: Image, widget: image }
+          - { name: alt, label: "Alt Text", widget: string }
+          - { name: title, label: Headline, widget: string }
+          - { name: description, label: Description, widget: text }
+          - { name: href, label: Link, widget: string, required: false }
+          - { name: cta, label: "CTA Label", widget: string, required: false, hint: "Only shown when a link is also set" }
+          - { name: imagePosition, label: "Image Position", widget: select, options: ["left", "right"], required: false, hint: "Default: alternates automatically (left/right)" }
+
+  - label: "Galerie: Lightbox-Raster (DE)"
+    name: galleries_lightbox_grid_de
+    folder: "src/content/galleries"
+    path: "de/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "lightbox-grid" }
+      - { field: locale, value: "de" }
+    fields:
+      - { name: kind, label: Typ, widget: hidden, default: "lightbox-grid" }
+      - { name: locale, label: Sprache, widget: hidden, default: "de" }
+      - { name: translationKey, label: "Übersetzungsschlüssel", widget: string }
+      - { name: title, label: Titel, widget: string, required: false }
+      - { name: columns, label: Spalten, widget: number, default: 3, value_type: int, min: 2, max: 4 }
+      - { name: gap, label: Abstand, widget: select, options: ["sm", "md", "lg"], default: "md" }
+      - { name: aspectRatio, label: Bildformat, widget: select, options: ["square", "4/3", "auto"], default: "square" }
+      - label: Bilder
+        name: items
+        widget: list
+        fields:
+          - { name: src, label: Bild, widget: image }
+          - { name: alt, label: "Alt-Text", widget: string }
+          - { name: title, label: Titel, widget: string, required: false }
+          - { name: description, label: Beschreibung, widget: text, required: false }
+
+  - label: "Gallery: Lightbox Grid (EN)"
+    name: galleries_lightbox_grid_en
+    folder: "src/content/galleries"
+    path: "en/{{slug}}"
+    create: true
+    extension: yml
+    format: yml
+    filter:
+      - { field: kind, value: "lightbox-grid" }
+      - { field: locale, value: "en" }
+    fields:
+      - { name: kind, label: Type, widget: hidden, default: "lightbox-grid" }
+      - { name: locale, label: Locale, widget: hidden, default: "en" }
+      - { name: translationKey, label: "Translation Key", widget: string }
+      - { name: title, label: Title, widget: string, required: false }
+      - { name: columns, label: Columns, widget: number, default: 3, value_type: int, min: 2, max: 4 }
+      - { name: gap, label: Gap, widget: select, options: ["sm", "md", "lg"], default: "md" }
+      - { name: aspectRatio, label: "Aspect Ratio", widget: select, options: ["square", "4/3", "auto"], default: "square" }
+      - label: Images
+        name: items
+        widget: list
+        fields:
+          - { name: src, label: Image, widget: image }
+          - { name: alt, label: "Alt Text", widget: string }
+          - { name: title, label: Title, widget: string, required: false }
+          - { name: description, label: Description, widget: text, required: false }
+
+  - label: "Site Config"
+    name: site_config
+    files:
+      - label: Company
+        name: company
+        file: "src/content/data/company.json"
+        fields:
+          - { name: companyName, label: "Company Name", widget: string }
+          - { name: defaultTitle, label: "Default Title", widget: string }
+          - { name: url, label: URL, widget: string }
+
+      - label: Navigation
+        name: navigation
+        file: "src/content/data/navigation.json"
+        fields:
+          - { name: companyName, label: "Company Name", widget: string }
+          - { name: defaultTitle, label: "Default Title", widget: string }
+          - { name: url, label: URL, widget: string }
+          - label: Hauptnavigation
+            name: main
+            widget: object
+            fields:
+              - label: Deutsch
+                name: de
+                widget: list
+                fields:
+                  - { name: label, label: Bezeichnung, widget: string }
+                  - { name: href, label: Link, widget: string }
+                  - { name: order, label: Reihenfolge, widget: number }
+              - label: English
+                name: en
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: Link, widget: string }
+                  - { name: order, label: Order, widget: number }
+          - label: "Rechtliche Links"
+            name: legal
+            widget: object
+            fields:
+              - label: Deutsch
+                name: de
+                widget: list
+                fields:
+                  - { name: label, label: Bezeichnung, widget: string }
+                  - { name: href, label: Link, widget: string }
+                  - { name: order, label: Reihenfolge, widget: number }
+              - label: English
+                name: en
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: Link, widget: string }
+                  - { name: order, label: Order, widget: number }
+
+      - label: "SEO Einstellungen"
+        name: seo
+        file: "src/content/data/seo.json"
+        fields:
+          - { name: companyName, label: "Company Name", widget: string }
+          - { name: defaultTitle, label: "Default Title", widget: string }
+          - { name: url, label: URL, widget: string }
+          - { name: titleTemplate, label: "Titel-Template", widget: string }
+          - { name: defaultDescription, label: "Standard-Beschreibung", widget: text }
+          - { name: ogImage, label: "OG-Bild", widget: image, required: false }
+          - { name: twitterCard, label: "Twitter Card", widget: select, options: ["summary", "summary_large_image"] }
+          - { name: noIndex, label: "Nicht indexieren", widget: boolean, default: false }
+
+      - label: "Theme Colors"
+        name: "theme"
+        file: "src/content/data/theme.json"
+        fields:
+          - { name: companyName, widget: hidden, default: "dev.ismaili.de" }
+          - { name: defaultTitle, widget: hidden, default: "dev.ismaili.de" }
+          - { name: url, widget: hidden, default: "https://dev.ismaili.de" }
+          - name: primary
+            label: "Primary Brand Color"
+            widget: color
+            default: "#2563eb"
+            hint: "⚠️ Affects the entire site (buttons, links, highlights). Only change during intentional brand updates — not for daily content editing."
+          - name: accent
+            label: "Accent Color"
+            widget: color
+            default: "#f59e0b"
+            hint: "⚠️ Used for secondary highlights. Same caution as Primary — affects global site appearance."
+
+      - label: "Startseite (DE)"
+        name: home_de
+        file: "src/content/data/home-de.json"
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { name: title, label: Titel, widget: string }
+              - { name: subtitle, label: Untertitel, widget: text }
+              - { name: ctaLabel, label: "CTA Text", widget: string }
+              - { name: ctaHref, label: "CTA Link", widget: string }
+          - label: Features
+            name: features
+            widget: list
+            fields:
+              - { name: title, label: Titel, widget: string }
+              - { name: description, label: Beschreibung, widget: text }
+          - label: "CTA-Bereich"
+            name: ctaSection
+            widget: object
+            fields:
+              - { name: heading, label: Titel, widget: string }
+              - { name: body, label: Beschreibung, widget: text }
+              - { name: buttonLabel, label: "Button Text", widget: string }
+              - { name: buttonHref, label: "Button Link", widget: string }
+
+      - label: "Startseite (EN)"
+        name: home_en
+        file: "src/content/data/home-en.json"
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: subtitle, label: Subtitle, widget: text }
+              - { name: ctaLabel, label: "CTA Text", widget: string }
+              - { name: ctaHref, label: "CTA Link", widget: string }
+          - label: Features
+            name: features
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+          - label: "CTA Section"
+            name: ctaSection
+            widget: object
+            fields:
+              - { name: heading, label: Title, widget: string }
+              - { name: body, label: Description, widget: text }
+              - { name: buttonLabel, label: "Button Text", widget: string }
+              - { name: buttonHref, label: "Button Link", widget: string }

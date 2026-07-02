@@ -1,0 +1,28 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Hero from '@achimismaili/easy-web-content-blocks/components/Hero';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import CardGrid from '@achimismaili/easy-web-content-blocks/components/CardGrid';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Card from '@achimismaili/easy-web-content-blocks/components/Card';
+---
+
+<Hero
+  title="Willkommen bei dev.ismaili.de"
+  subtitle="Entdecken Sie die Bausteine des easy-web Ökosystems."
+/>
+
+<CardGrid>
+  <Card
+    title="Theming"
+    description="Flexibles Design-Token-System mit Licht- und Dunkelmodus, das sich an jede Marke anpassen lässt."
+  />
+  <Card
+    title="Internationalisierung"
+    description="Eingebaute i18n-Unterstützung für mehrsprachige Websites mit automatischer Spracherkennung."
+  />
+  <Card
+    title="Content-Blöcke"
+    description="Wiederverwendbare Astro-Komponenten wie Hero, Cards und Sections für schnellen Seitenaufbau."
+  />
+</CardGrid>

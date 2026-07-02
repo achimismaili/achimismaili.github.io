@@ -1,0 +1,172 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../../layouts/Base.astro';
+import HeaderFlyout from '@achimismaili/easy-web-content-blocks/components/HeaderFlyout';
+
+interface DemoNavItem {
+  label: string;
+  href: string;
+  children?: DemoNavItem[];
+}
+
+const demoNavItems: DemoNavItem[] = [
+  { label: 'Start', href: '/nav-variants/flyout/' },
+  {
+    label: 'Produkte',
+    href: '#',
+    children: [
+      { label: 'Widget A', href: '/nav-variants/flyout/' },
+      { label: 'Widget B', href: '/nav-variants/flyout/' },
+      { label: 'Widget C', href: '/nav-variants/flyout/' },
+    ],
+  },
+  {
+    label: 'Dienste',
+    href: '#',
+    children: [
+      { label: 'Beratung', href: '/nav-variants/flyout/' },
+      { label: 'Support', href: '/nav-variants/flyout/' },
+    ],
+  },
+  { label: 'Kontakt', href: '/nav-variants/flyout/' },
+];
+---
+
+<Base
+  lang="de"
+  title="Flyout Header — Nav-Varianten"
+  pathname="/nav-variants/flyout/"
+  alternateHref="/en/nav-variants/flyout/"
+  headerVariant="flyout"
+  description="Demo des Flyout-Headers: Dropdown-Navigation für Menüpunkte mit children[]."
+>
+  <article class="ew-variant-showcase">
+    <div class="ew-variant-showcase__inner">
+      <h1>Flyout Header</h1>
+      <p class="ew-variant-showcase__lead">
+        Navigationslinks mit <code>children[]</code> zeigen ein Dropdown-Panel.
+        Desktop: öffnet beim Hover/Fokus. Mobil: öffnet beim Klick.
+        Vollständig tastaturzugänglich mit <code>aria-expanded</code>, <code>aria-haspopup</code>
+        und Escape-Taste zum Schließen.
+      </p>
+    </div>
+  </article>
+
+  <section class="ew-variant-showcase-section">
+    <div class="ew-variant-showcase-section__inner">
+      <h2>Live-Demo mit Mock-Daten</h2>
+      <p>
+        Der folgende Header verwendet hartcodierte NavItems mit <code>children[]</code>.
+        Hover über „Produkte" oder „Dienste", um die Flyout-Panels zu sehen.
+      </p>
+    </div>
+    <div class="ew-flyout-demo">
+      <HeaderFlyout
+        siteName="Demo-Site"
+        navItems={demoNavItems}
+        currentLang="de"
+        pathname="/nav-variants/flyout/"
+        alternateHref="/en/nav-variants/flyout/"
+      />
+    </div>
+  </section>
+
+  <section class="ew-variant-showcase-section ew-variant-showcase-section--alt">
+    <div class="ew-variant-showcase-section__inner">
+      <h2>Tastaturzugänglichkeit</h2>
+      <ul class="ew-variant-showcase-list">
+        <li><kbd>Tab</kbd> — navigiert durch alle Links und Trigger</li>
+        <li><kbd>Enter</kbd> — öffnet das Dropdown eines Triggers</li>
+        <li><kbd>Escape</kbd> — schließt das offene Dropdown</li>
+        <li>Außerhalb klicken — schließt alle offenen Dropdowns</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ew-variant-showcase-section">
+    <div class="ew-variant-showcase-section__inner">
+      <h2>Eigenschaften</h2>
+      <ul class="ew-variant-showcase-list">
+        <li>Links ohne <code>children</code>: normaler Link</li>
+        <li>Links mit <code>children[]</code>: Button + Dropdown-Panel</li>
+        <li><code>aria-expanded="false/true"</code> auf dem Trigger-Button</li>
+        <li><code>aria-haspopup="true"</code> auf dem Trigger-Button</li>
+        <li><code>role="menu"</code> auf der Dropdown-Liste</li>
+        <li><code>data-testid="header-flyout"</code> für E2E-Tests</li>
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ew-variant-showcase {
+    padding: var(--ew-space-8) var(--ew-space-5) var(--ew-space-6);
+  }
+  .ew-variant-showcase__inner {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .ew-variant-showcase h1 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-3xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+    line-height: var(--ew-leading-tight);
+  }
+  .ew-variant-showcase__lead {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-lg);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    margin: 0;
+  }
+  .ew-variant-showcase-section {
+    padding: var(--ew-space-8) var(--ew-space-5);
+    border-top: 1px solid var(--ew-border);
+  }
+  .ew-variant-showcase-section--alt {
+    background: var(--ew-surface-muted);
+  }
+  .ew-variant-showcase-section__inner {
+    max-width: 48rem;
+    margin: 0 auto 0;
+  }
+  .ew-variant-showcase-section h2 {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-xl);
+    font-weight: 700;
+    color: var(--ew-on-surface);
+    margin: 0 0 var(--ew-space-4);
+  }
+  .ew-variant-showcase-section p {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    margin: 0 0 var(--ew-space-3);
+  }
+  .ew-flyout-demo {
+    margin-top: var(--ew-space-4);
+    border: 1px solid var(--ew-border);
+    border-radius: var(--ew-radius-lg);
+    overflow: visible;
+    position: relative;
+    z-index: 10;
+  }
+  .ew-variant-showcase-list {
+    font-family: var(--ew-font-sans);
+    font-size: var(--ew-text-base);
+    color: var(--ew-on-surface);
+    line-height: var(--ew-leading-loose);
+    padding-left: var(--ew-space-5);
+    margin: 0;
+  }
+  .ew-variant-showcase-list li { margin-bottom: var(--ew-space-2); }
+  code, kbd {
+    background: var(--ew-surface-muted);
+    border-radius: var(--ew-radius-sm);
+    padding: 0.15em 0.35em;
+    font-size: 0.9em;
+  }
+</style>

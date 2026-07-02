@@ -1,0 +1,24 @@
+---
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import Base from '../layouts/Base.astro';
+// biome-ignore lint/correctness/noUnusedImports: used in the Astro template below.
+import LegalLayout from '@achimismaili/easy-web-content-blocks/components/LegalLayout';
+import { getCollection, render } from 'astro:content';
+
+const entries = await getCollection('pages', (e) =>
+  e.data.translationKey === 'privacy' && e.data.locale === 'de'
+);
+const entry = entries[0];
+const { Content } = entry ? await render(entry) : { Content: () => null };
+---
+
+<Base
+  lang="de"
+  title={entry?.data.title ?? 'Datenschutzerklärung'}
+  pathname="/datenschutz/"
+  alternateHref="/en/privacy/"
+>
+  <LegalLayout title={entry?.data.title ?? 'Datenschutzerklärung'}>
+    {entry && <Content />}
+  </LegalLayout>
+</Base>
