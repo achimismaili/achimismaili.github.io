@@ -1,9 +1,9 @@
 backend:
-  name: azure
-  repo: IT-CI/WebSites/dev.ismaili.de
-  tenant_id: 2bf1954a-a312-4596-8a3b-9ff2e50b2ecd
-  app_id: 0cbfd08c-0235-4b61-ae13-5fc1cd25f0a8
+  name: github
+  repo: achimismaili/achimismaili.github.io
   branch: main
+  auth_type: pkce
+  app_id: OAUTH_APP_CLIENT_ID_HERE
 
 media_folder: "public/images"
 public_folder: "/images"
