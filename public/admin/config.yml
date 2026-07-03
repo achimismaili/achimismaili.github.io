@@ -3,7 +3,7 @@ backend:
   repo: achimismaili/achimismaili.github.io
   branch: main
   auth_type: pkce
-  app_id: OAUTH_APP_CLIENT_ID_HERE
+  app_id: Ov23liQ3ZTzMYXfESNcA
 
 media_folder: "public/images"
 public_folder: "/images"
