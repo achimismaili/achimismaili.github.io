@@ -21,10 +21,20 @@
       "description": "Automerge external devDep patches (conservative)",
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["patch"],
-      "matchPackageNames": ["!@achimismaili/**"],
+      "matchPackageNames": ["!@achimismaili/**", "!turbo", "!@inlang/paraglide-js"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true,
       "automergeType": "branch"
+    },
+    {
+      "description": "Turbo: never automerge (cache fingerprinting changes)",
+      "matchPackageNames": ["turbo"],
+      "automerge": false
+    },
+    {
+      "description": "Paraglide: never automerge (codegen tool, output changes silently)",
+      "matchPackageNames": ["@inlang/paraglide-js"],
+      "automerge": false
     },
     {
       "description": "Major updates require manual review",
