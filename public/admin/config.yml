@@ -2,8 +2,7 @@ backend:
   name: github
   repo: achimismaili/achimismaili.github.io
   branch: main
-  auth_type: pkce
-  app_id: Ov23liQ3ZTzMYXfESNcA
+  site_domain: NETLIFY_SITE_DOMAIN_HERE
 
 media_folder: "public/images"
 public_folder: "/images"
