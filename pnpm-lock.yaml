@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@achimismaili/easy-web-cms-adapters':
         specifier: ^0.2.0
-        version: 0.2.0(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))
+        version: 0.2.0(astro@6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))
       '@achimismaili/easy-web-content-blocks':
         specifier: ^0.6.1
-        version: 0.6.1(@achimismaili/easy-web-theme-core@0.5.0)(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))(zod@4.4.3)
+        version: 0.6.1(@achimismaili/easy-web-theme-core@0.5.0)(astro@6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))(zod@4.4.3)
       '@achimismaili/easy-web-i18n':
         specifier: ^0.3.1
-        version: 0.3.1(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))
+        version: 0.3.1(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))
       '@achimismaili/easy-web-theme-core':
         specifier: ^0.5.0
         version: 0.5.0
@@ -30,8 +30,8 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.17)
       astro:
-        specifier: 6.4.2
-        version: 6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
+        specifier: 6.4.8
+        version: 6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
       react:
         specifier: ^19.2.7
         version: 19.2.7
@@ -1056,8 +1056,8 @@ packages:
   array-timsort@1.0.3:
     resolution: {integrity: sha512-/+3GRL7dDAGEfM6TseQk/U+mi18TU2Ms9I3UlLdUMhz2hbvGNTKdj9xniwXfUqgYhHxRx0+8UnKkvlNwVU+cWQ==}
 
-  astro@6.4.2:
-    resolution: {integrity: sha512-8H89CH2dKL5SCU99OCqdU9BGjmPkSJqaPurywj5XMo7eMFGUFD3vsNhdEKnEh4mK4LgGje3/QDTTSIIGst0G0Q==}
+  astro@6.4.8:
+    resolution: {integrity: sha512-KK5lX90uU9EeVaTjINyj3sy9/NFXVa59aowaqbWBDDKLXZh4rr7GwIaCFYVetE22MJtsCNFerQXn0vlCLmpP/Q==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2275,20 +2275,20 @@ packages:
 
 snapshots:
 
-  '@achimismaili/easy-web-cms-adapters@0.2.0(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))':
+  '@achimismaili/easy-web-cms-adapters@0.2.0(astro@6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))':
     dependencies:
-      astro: 6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
+      astro: 6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
 
-  '@achimismaili/easy-web-content-blocks@0.6.1(@achimismaili/easy-web-theme-core@0.5.0)(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))(zod@4.4.3)':
+  '@achimismaili/easy-web-content-blocks@0.6.1(@achimismaili/easy-web-theme-core@0.5.0)(astro@6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))(zod@4.4.3)':
     dependencies:
       '@achimismaili/easy-web-theme-core': 0.5.0
-      astro: 6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
+      astro: 6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
       zod: 4.4.3
 
-  '@achimismaili/easy-web-i18n@0.3.1(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))':
+  '@achimismaili/easy-web-i18n@0.3.1(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0))':
     dependencies:
       '@inlang/paraglide-js': 2.20.2(typescript@5.9.3)
-      astro: 6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
+      astro: 6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0)
 
   '@achimismaili/easy-web-theme-core@0.5.0': {}
 
@@ -3177,7 +3177,7 @@ snapshots:
 
   array-timsort@1.0.3: {}
 
-  astro@6.4.2(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0):
+  astro@6.4.8(@types/node@25.9.4)(rollup@4.62.2)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.10.0
