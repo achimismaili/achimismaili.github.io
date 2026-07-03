@@ -2,7 +2,7 @@ backend:
   name: github
   repo: achimismaili/achimismaili.github.io
   branch: main
-  site_domain: NETLIFY_SITE_DOMAIN_HERE
+  base_url: https://victorious-grass-088d27603.7.azurestaticapps.net
 
 media_folder: "public/images"
 public_folder: "/images"
