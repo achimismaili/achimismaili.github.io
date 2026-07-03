@@ -3,6 +3,7 @@ backend:
   repo: achimismaili/achimismaili.github.io
   branch: main
   base_url: https://victorious-grass-088d27603.7.azurestaticapps.net
+  auth_endpoint: api/auth
 
 media_folder: "public/images"
 public_folder: "/images"
