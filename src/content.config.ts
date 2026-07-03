@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'zod';
 import { glob } from 'astro/loaders';
 import { gallerySchema } from '@achimismaili/easy-web-content-blocks/schemas/galleries';
 
@@ -20,7 +21,7 @@ const siteConfig = defineCollection({
     companyName: z.string().optional(),
     defaultTitle: z.string().optional(),
     url: z.string().optional(),
-  }).passthrough(),
+  }).loose(),
 });
 
 const galleries = defineCollection({
