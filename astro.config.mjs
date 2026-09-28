@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://achim.ismaili.de',
-  integrations: [sitemap(), react()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/admin') }), react()],
   i18n: {
     locales: ['de', 'en'],
     defaultLocale: 'de',

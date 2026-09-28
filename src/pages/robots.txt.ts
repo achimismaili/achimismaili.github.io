@@ -6,7 +6,15 @@ export const GET: APIRoute = ({ site }) => {
 
   const lines = siteConfig.noIndex
     ? ['User-agent: *', 'Disallow: /', 'Disallow: /version.json']
-    : ['User-agent: *', 'Allow: /', 'Disallow: /version.json', '', `Sitemap: ${sitemapUrl}`];
+    : [
+        'User-agent: *',
+        'Allow: /',
+        'Disallow: /admin',
+        'Disallow: /admin/',
+        'Disallow: /version.json',
+        '',
+        `Sitemap: ${sitemapUrl}`,
+      ];
 
   return new Response(lines.join('\n') + '\n', {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
