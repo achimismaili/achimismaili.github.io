@@ -19,10 +19,10 @@
     "test:e2e:install": "playwright install --with-deps chromium"
   },
   "dependencies": {
-    "@achimismaili/easy-web-cms-adapters": "^0.2.0",
-    "@achimismaili/easy-web-content-blocks": "^0.6.1",
-    "@achimismaili/easy-web-i18n": "^0.4.0",
-    "@achimismaili/easy-web-theme-core": "^0.5.0",
+    "@easy-web/cms-adapters": "^1.3.0",
+    "@easy-web/content-blocks": "^1.3.0",
+    "@easy-web/i18n": "^1.3.0",
+    "@easy-web/theme-core": "^1.3.0",
     "@astrojs/react": "^6.0.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",

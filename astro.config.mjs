@@ -14,10 +14,11 @@ export default defineConfig({
     },
   },
   vite: {
-    // Ensure linked @achimismaili/easy-web-content-blocks resolves sibling
-    // packages from this project's node_modules (needed until publish).
+    // @easy-web/content-blocks depends on @easy-web/theme-core and this project
+    // declares it directly. Dedupe so both resolve to one copy -- two theme-core
+    // instances would emit duplicate tokens and race the no-flash script.
     resolve: {
-      dedupe: ['@achimismaili/easy-web-theme-core', 'react', 'react-dom'],
+      dedupe: ['@easy-web/theme-core', 'react', 'react-dom'],
     },
   },
 });

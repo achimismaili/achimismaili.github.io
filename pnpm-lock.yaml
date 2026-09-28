@@ -8,21 +8,21 @@ importers:
 
   .:
     dependencies:
-      '@achimismaili/easy-web-cms-adapters':
-        specifier: ^0.2.0
-        version: 0.2.0(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))
-      '@achimismaili/easy-web-content-blocks':
-        specifier: ^0.6.1
-        version: 0.6.1(@achimismaili/easy-web-theme-core@0.5.0)(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))(zod@4.6.5)
-      '@achimismaili/easy-web-i18n':
-        specifier: ^0.4.0
-        version: 0.4.0(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))
-      '@achimismaili/easy-web-theme-core':
-        specifier: ^0.5.0
-        version: 0.5.0
       '@astrojs/react':
         specifier: ^6.0.1
         version: 6.0.1(@types/node@25.9.4)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(yaml@2.9.0)
+      '@easy-web/cms-adapters':
+        specifier: ^1.3.0
+        version: 1.3.0(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))
+      '@easy-web/content-blocks':
+        specifier: ^1.3.0
+        version: 1.3.0(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))(zod@4.6.5)
+      '@easy-web/i18n':
+        specifier: ^1.3.0
+        version: 1.3.0(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))
+      '@easy-web/theme-core':
+        specifier: ^1.3.0
+        version: 1.3.0
       '@types/react':
         specifier: ^19.2.17
         version: 19.2.17
@@ -65,27 +65,6 @@ importers:
         version: 5.9.3
 
 packages:
-
-  '@achimismaili/easy-web-cms-adapters@0.2.0':
-    resolution: {integrity: sha512-TBfcW65JFMeUfhUne5Zj+GQBT9/Qc0t0KDdnxVBrxQP5jyWcf0VmJpIXygqFkuYd/Vgf+EttyJYHutfR+Z7AXA==}
-    peerDependencies:
-      astro: '>=6.0.0'
-
-  '@achimismaili/easy-web-content-blocks@0.6.1':
-    resolution: {integrity: sha512-aaK3iGI7jpgZHB0TSIRn3vc/fiPBboVhHMZs+x9dBZ75Nvc6vfX0zGLg5SX8wa426ck6Gm9dafne4uSxkJhrjQ==}
-    peerDependencies:
-      '@achimismaili/easy-web-theme-core': 0.5.0
-      astro: '>=6.0.0'
-      zod: '>=4.0.0'
-
-  '@achimismaili/easy-web-i18n@0.4.0':
-    resolution: {integrity: sha512-ql73DLbrg+fSFPlawBshmaBgSnRhSl4DxyhX98MCraKjVfsHu7BszMERi8YXXaJIWghKoj/k7qpWJDAtlGIguQ==}
-    peerDependencies:
-      '@inlang/paraglide-js': ^2.0.0
-      astro: '>=6.0.0 <8.0.0'
-
-  '@achimismaili/easy-web-theme-core@0.5.0':
-    resolution: {integrity: sha512-e5Z+a1nAWiqpMQ9IxECyZZ5dflbePLEe2KHSKp2Lvciy2nfjCN1n2HVs3hBTiVT68XiUGep2auwfhBlIylLayQ==}
 
   '@astrojs/check@0.9.9':
     resolution: {integrity: sha512-A5UW8uIuErLWEoRQvzgXpO1gTjUFtK8r7nU2Z7GewAMxUb7bPvpk11qaKKgxqXlHJWlAvaaxy+Xg28A6bmQ1Tg==}
@@ -346,6 +325,26 @@ packages:
   '@clack/prompts@1.6.0':
     resolution: {integrity: sha512-EYlRokl8szrP9Z25qT5aepMdBjzBvHF9ZEhzIiUBc9guz/T31EqRgvD0QSgZcpE93xiwrr+OkB4nz0BZyF6fSA==}
     engines: {node: '>= 20.12.0'}
+
+  '@easy-web/cms-adapters@1.3.0':
+    resolution: {integrity: sha512-a+xAAexjl//qZVsPgbXlgUE5Hv3IH+7so1/tdZY7YNpKG5JfZQ9Km5h2P2eQEuv+RcBN4kYB+rd+MdH1LP5WBw==}
+    peerDependencies:
+      astro: '>=6.0.0 <8.0.0'
+
+  '@easy-web/content-blocks@1.3.0':
+    resolution: {integrity: sha512-QjtlrVghXcArszwZeP+41X0yWnGh9uU5C8geB4QH9Q6qXkoHzs+lHwhN7S/VZMA3u+W8TmzfcVNkfXpN7ZC8kg==}
+    peerDependencies:
+      astro: '>=6.0.0 <8.0.0'
+      zod: '>=4.0.0'
+
+  '@easy-web/i18n@1.3.0':
+    resolution: {integrity: sha512-2SnCA6Un9h+OWKNNcMqfAeoS1VoQ1wVtOcVsG6bR3ivcJl58I4RYFFCxGD7dHVN5VSyiG9TklNSi0UJzsixT/g==}
+    peerDependencies:
+      '@inlang/paraglide-js': ^2.0.0
+      astro: '>=6.0.0 <8.0.0'
+
+  '@easy-web/theme-core@1.3.0':
+    resolution: {integrity: sha512-0SWt1jRNPIw4PyADf0Q3O2yCCeepwB3wp69BoSNPYFXPWkosrpyGFWN/RSei05eZy5CkZURfEXH7DXNx0LjNhA==}
 
   '@emmetio/abbreviation@2.3.3':
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
@@ -2117,23 +2116,6 @@ packages:
 
 snapshots:
 
-  '@achimismaili/easy-web-cms-adapters@0.2.0(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))':
-    dependencies:
-      astro: 7.3.5(@types/node@25.9.4)(yaml@2.9.0)
-
-  '@achimismaili/easy-web-content-blocks@0.6.1(@achimismaili/easy-web-theme-core@0.5.0)(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))(zod@4.6.5)':
-    dependencies:
-      '@achimismaili/easy-web-theme-core': 0.5.0
-      astro: 7.3.5(@types/node@25.9.4)(yaml@2.9.0)
-      zod: 4.6.5
-
-  '@achimismaili/easy-web-i18n@0.4.0(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))':
-    dependencies:
-      '@inlang/paraglide-js': 2.20.2(typescript@5.9.3)
-      astro: 7.3.5(@types/node@25.9.4)(yaml@2.9.0)
-
-  '@achimismaili/easy-web-theme-core@0.5.0': {}
-
   '@astrojs/check@0.9.9(prettier@3.8.5)(typescript@5.9.3)':
     dependencies:
       '@astrojs/language-server': 2.16.10(prettier@3.8.5)(typescript@5.9.3)
@@ -2457,6 +2439,26 @@ snapshots:
       fast-string-width: 3.0.2
       fast-wrap-ansi: 0.2.2
       sisteransi: 1.0.5
+
+  '@easy-web/cms-adapters@1.3.0(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))':
+    dependencies:
+      astro: 7.3.5(@types/node@25.9.4)(yaml@2.9.0)
+
+  '@easy-web/content-blocks@1.3.0(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))(zod@4.6.5)':
+    dependencies:
+      '@easy-web/i18n': 1.3.0(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))
+      '@easy-web/theme-core': 1.3.0
+      astro: 7.3.5(@types/node@25.9.4)(yaml@2.9.0)
+      zod: 4.6.5
+    transitivePeerDependencies:
+      - '@inlang/paraglide-js'
+
+  '@easy-web/i18n@1.3.0(@inlang/paraglide-js@2.20.2(typescript@5.9.3))(astro@7.3.5(@types/node@25.9.4)(yaml@2.9.0))':
+    dependencies:
+      '@inlang/paraglide-js': 2.20.2(typescript@5.9.3)
+      astro: 7.3.5(@types/node@25.9.4)(yaml@2.9.0)
+
+  '@easy-web/theme-core@1.3.0': {}
 
   '@emmetio/abbreviation@2.3.3':
     dependencies:

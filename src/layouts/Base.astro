@@ -1,14 +1,14 @@
 ---
 // biome-ignore lint/correctness/noUnusedImports: used in global stylesheet side effects.
-import { noFlashScript } from '@achimismaili/easy-web-theme-core';
-import '@achimismaili/easy-web-theme-core/tokens.css';
-import '@achimismaili/easy-web-theme-core/fonts.css';
+import { noFlashScript } from '@easy-web/theme-core';
+import '@easy-web/theme-core/tokens.css';
+import '@easy-web/theme-core/fonts.css';
 import '../styles/themes.css';
-import Header from '@achimismaili/easy-web-content-blocks/components/Header';
-import HeaderCentered from '@achimismaili/easy-web-content-blocks/components/HeaderCentered';
-import HeaderHideOnScroll from '@achimismaili/easy-web-content-blocks/components/HeaderHideOnScroll';
-import HeaderFlyout from '@achimismaili/easy-web-content-blocks/components/HeaderFlyout';
-import Footer from '@achimismaili/easy-web-content-blocks/components/Footer';
+import Header from '@easy-web/content-blocks/components/Header';
+import HeaderCentered from '@easy-web/content-blocks/components/HeaderCentered';
+import HeaderHideOnScroll from '@easy-web/content-blocks/components/HeaderHideOnScroll';
+import HeaderFlyout from '@easy-web/content-blocks/components/HeaderFlyout';
+import Footer from '@easy-web/content-blocks/components/Footer';
 import { i18n } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
 import { siteConfig } from '../config';
@@ -122,7 +122,7 @@ const alternateLinks = i18n.getAlternateLinks(pathname);
     {alternateLinks.map((link) => <link rel="alternate" hreflang={link.hreflang} href={link.href} />)}
   </head>
   <body>
-    <ActiveHeader siteName={siteConfig.siteName} navItems={navItems} currentLang={locale} pathname={pathname} alternateHref={alternateHref} logo="/logo.svg" />
+    <ActiveHeader siteName={siteConfig.siteName} navItems={navItems} currentLang={locale} pathname={pathname} alternateHref={alternateHref} logo="/logo.svg" locales={i18n.locales} />
     <slot />
     <Footer siteName={siteConfig.siteName} legalLinks={legalLinks} />
   </body>

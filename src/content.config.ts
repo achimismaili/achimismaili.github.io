@@ -1,7 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'zod';
 import { glob } from 'astro/loaders';
-import { gallerySchema } from '@achimismaili/easy-web-content-blocks/schemas/galleries';
+import { gallerySchema } from '@easy-web/content-blocks/schemas/galleries';
 
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
